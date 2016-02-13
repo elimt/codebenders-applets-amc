@@ -103,5 +103,12 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova'])
 
 
 .controller('confirmPageCtrl', function($scope, $state) {
-
+    $scope.valid_confirmation =  function(){
+        $state.go('healthFitness');
+    }
+})
+.controller('healthFitnessCtrl', function($scope, $state) {
+    $scope.init =  function(){
+        
+    }
 });
