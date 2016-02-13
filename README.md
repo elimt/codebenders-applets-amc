@@ -11,13 +11,13 @@
 * [Ammar K.](https://ca.linkedin.com/in/ammar-khan-3a4a4121)
 
 ![alt homeScreen] (https://github.com/roncodingenthusiast/codebenders-applets-amc/blob/master/Prototype/Home%20Screen.png)
-![alt registerDonor] (https://github.com/roncodingenthusiast/codebenders-applets-amc/blob/master/Prototype/Donor%20Sign%20Up%20Screen.png)
+![alt registerDonor] (https://github.com/roncodingenthusiast/codebenders-applets-amc/blob/master/Prototype/Donor%20Sign%20Up%20Screen.png
 
 ![alt donorLogin] (https://github.com/roncodingenthusiast/codebenders-applets-amc/blob/master/Prototype/Donor%20Login%20Screen.png)
 ![alt hospitalLogin] (https://github.com/roncodingenthusiast/codebenders-applets-amc/blob/master/Prototype/Hospital%20Login%20Screen.png)
 
 ![alt allDonor] (https://github.com/roncodingenthusiast/codebenders-applets-amc/blob/master/Prototype/Donor%20Landing%20Page.png)
-![alt hospitalFilter](https://github.com/roncodingenthusiast/codebenders-applets-amc/blob/master/Prototype/Hospital%20Filter%20Option.png)
+![alt hospitalFilter] (https://github.com/roncodingenthusiast/codebenders-applets-amc/blob/master/Prototype/Hospital%20Filter%20Option.png)
 
 ![alt viewDonor] (https://github.com/roncodingenthusiast/codebenders-applets-amc/blob/master/Prototype/Donar%20Details.png)
 ![alt HospitalLocation] (https://github.com/roncodingenthusiast/codebenders-applets-amc/blob/master/Prototype/Hospital%20Location%20Screen.png)
