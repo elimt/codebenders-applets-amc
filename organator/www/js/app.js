@@ -73,6 +73,12 @@ angular.module('starter', ['ionic','ui.router','starter.controllers', 'ngCordova
             templateUrl: 'template/signUp.html',
             controller: 'donorsignupCtrl'
         })
+        .state('personalDetails', {
+            url: '/personalDetails',
+            cache: false,
+            templateUrl: 'template/personalDetails.html',
+            controller: 'personalDetailsCtrl'
+        })
 		// if none of the above states are matched, use this as the fallback
 	$urlRouterProvider.otherwise('/home');
 

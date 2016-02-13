@@ -67,8 +67,11 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova'])
 //    }
    
 })
-.controller('donorsignupCtrl', function ($scope) {
+.controller('donorsignupCtrl', function ($scope, $rootScope, $state) {
 		$scope.init = function () {}
+        $scope.auth_true = function (){
+            $state.go('personalDetails');
+        }
         
 })
 
