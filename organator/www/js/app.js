@@ -22,17 +22,13 @@ angular.module('starter', ['ionic','ui.router','starter.controllers', 'ngCordova
 			StatusBar.styleDefault();
 		}
         
-        
-        db = $cordovaSQLite.openDB("my.db");
-        $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS people (id integer primary key, firstname text, lastname text)");
+//        
+//        db = $cordovaSQLite.openDB("my.db");
+//        $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS people (id integer primary key, firstname text, lastname text)");
 	});
 })
 .config(function ($stateProvider, $urlRouterProvider) {
-
-	// Ionic uses AngularUI Router which uses the concept of states
-	// Learn more here: https://github.com/angular-ui/ui-router
-	// Set up the various states which the app can be in.
-	// Each state's controller can be found in controllers.js
+    
 	$stateProvider
 		.state('home', {
 			url: '/home',
@@ -75,7 +71,7 @@ angular.module('starter', ['ionic','ui.router','starter.controllers', 'ngCordova
             url: '/donor_signup', 
             cache: false, 
             templateUrl: 'template/signUp.html',
-            controller: 'hospitalHomeCtrl'
+            controller: 'donorsignupCtrl'
         })
 		// if none of the above states are matched, use this as the fallback
 	$urlRouterProvider.otherwise('/home');
