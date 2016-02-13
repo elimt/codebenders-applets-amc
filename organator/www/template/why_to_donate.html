@@ -1,5 +1,56 @@
 <ion-view cache-view="false" view-title="Why To Donate?">
+
 	<ion-content class="padding">
-        
+	<div class="row margin-bottom-30">
+		<div class="col">
+			<h2 class="title">Organ Donor Statistics</h2>
+		</div>
+		</div>
+		
+<!--	<script>
+	var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+
+	var deceased = [261, 417, 226, 594, 2087, 4780, 10758, 4592]
+	var survived = [19, 86, 58, 134, 1061, 1627, 2033, 799]
+	
+	var barChartData = {
+		labels : ["<1","1-5","6-10","11-17","18-34","35-49","50-64","65+"],
+		datasets : [
+			{
+				fillColor : "rgba(220,220,220,0.5)",
+				strokeColor : "rgba(220,220,220,0.8)",
+				highlightFill: "rgba(220,220,220,0.75)",
+				highlightStroke: "rgba(220,220,220,1)",
+				data : [deceased[0],deceased[1],deceased[2],deceased[3],deceased[4],deceased[5],deceased[6], deceased[7]]
+			},
+			{
+				fillColor : "rgba(151,187,205,0.5)",
+				strokeColor : "rgba(151,187,205,0.8)",
+				highlightFill : "rgba(151,187,205,0.75)",
+				highlightStroke : "rgba(151,187,205,1)",
+				data : [survived[0],survived[1],survived[2],survived[3],survived[4],survived[5],survived[6], survived[7]]
+			}
+		]
+
+	}
+	window.onload = function(){
+		var ctx = document.getElementById("canvas").getContext("2d");
+		window.myBar = new Chart(ctx).Bar(barChartData, {
+			responsive : true
+		});
+	}
+	
+	var myLineChart = new Chart(document.getElementById("chartDiv").getContext("2d")).Line(data);
+    document.getElementById("legendDiv").innerHTML = myLineChart.generateLegend();
+
+	</script>-->
+	<div class="row margin-bottom-30">
+	<p>
+	A large metric to see how devastating of an impact organ failure has on humanity is the difference between the availability of organs compared to how many people need them.The graph below shows the mortality rate faced by people of various age groups compared to how many survived thanks to the various benovelent donors. 
+	</p>
+	</div>
+	<div class="title">
+	<img src="../img/why.png" alt="Graph">
+	</div>
 	</ion-content>
 </ion-view>
