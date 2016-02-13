@@ -65,6 +65,11 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova'])
     }
    
 })
+.controller('donorsignupCtrl', function ($scope) {
+		$scope.init = function () {}
+        
+})
+
 .controller('whyToDonateCtrl', function ($scope) {
 		$scope.init = function () {}
         
@@ -80,6 +85,7 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova'])
 .controller('organsDetailsCtrl', function($scope) {
 
 })
+
 
 .controller('confirmPageCtrl', function($scope) {
 
