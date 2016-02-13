@@ -67,7 +67,7 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova'])
 //    }
    
 })
-.controller('donorsignupCtrl', function ($scope, $rootScope, $state) {
+.controller('donorsignupCtrl', function ($scope, $state) {
 		$scope.init = function () {}
         $scope.auth_true = function (){
             $state.go('personalDetails');
@@ -80,19 +80,23 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova'])
 		$scope.init = function () {}
         
 })
-.controller('personalDetailsCtrl', function($scope) {
+.controller('personalDetailsCtrl', function($scope, $state) {
+    $scope.valid_persoDetails =  function(){
+        $state.go('addressDetails');
+    }
+})
+
+.controller('addressDetailsCtrl', function($scope, $state) {
+    $scope.valid_addressDetails = function(){
+        $state.go('organsDetails');
+    }
+})
+
+.controller('organsDetailsCtrl', function($scope, $state) {
 
 })
 
-.controller('addressDetailsCtrl', function($scope) {
 
-})
-
-.controller('organsDetailsCtrl', function($scope) {
-
-})
-
-
-.controller('confirmPageCtrl', function($scope) {
+.controller('confirmPageCtrl', function($scope, $state) {
 
 });
