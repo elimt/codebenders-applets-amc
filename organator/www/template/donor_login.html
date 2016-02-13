@@ -9,25 +9,25 @@
           <label class="item item-input">
             <input type="text" placeholder="Username">
           </label>
-        </div>
-		<div class="list list-inset">
+
           <label class="item item-input">
             <input type="text" placeholder="Password">
           </label>
-        </div>
-		
+
+		<ion-checkbox ng-model="filter.blue">Remember Me</ion-checkbox>
+	</div>
 		<div class="row">
             <button class="button button-full button-positive">
               Sign In
             </button>
 		</div>
-		<ion-checkbox ng-model="filter.blue">Remember Me</ion-checkbox>
+
         <div class="row">
-            <button class="button button-clear button-positive title" ng-click="forgot_password()">
+            <button class="button button-full button-clear button-positive title" ng-click="forgot_password()">
 				Forget Password?
 			</button>
         </div>
-		
+
 		<h3>OR</h3>
 		<div class="row">
             <button class="button button-block button-balanced">
