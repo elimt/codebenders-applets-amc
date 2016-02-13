@@ -93,7 +93,9 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova'])
 })
 
 .controller('organsDetailsCtrl', function($scope, $state) {
-
+    $scope.valid_organsDetails =  function(){
+        $state.go('confirmPage');
+    }
 })
 
 

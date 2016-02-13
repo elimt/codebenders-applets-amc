@@ -91,7 +91,12 @@ angular.module('starter', ['ionic','ui.router','starter.controllers', 'ngCordova
             templateUrl: 'template/organsDetails.html',
             controller: 'organsDetailsCtrl'
         })
-        
+        .state('confirmPage', {
+            url: '/confirmPage',
+            cache: false,
+            templateUrl: 'template/confirmPage.html',
+            controller: 'confirmPageCtrl'
+        })
 		// if none of the above states are matched, use this as the fallback
 	$urlRouterProvider.otherwise('/home');
 
