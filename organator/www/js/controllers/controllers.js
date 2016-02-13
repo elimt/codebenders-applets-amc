@@ -10,9 +10,9 @@ angular.module('starter.controllers', [])
 
 		$state.go('hospital');
 	}
-	$scope.donar_clicked = function () {
+	$scope.donor_clicked = function () {
 
-		$state.go('donar');
+		$state.go('donor');
 	}
 	$scope.why_donate = function () {
 
@@ -27,7 +27,7 @@ angular.module('starter.controllers', [])
 
 	})
 
-.controller('donarCtrl', function ($scope) {
+.controller('donorCtrl', function ($scope) {
 		$scope.init = function () {}
 
 })
