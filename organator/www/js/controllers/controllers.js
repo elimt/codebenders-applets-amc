@@ -36,6 +36,9 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova'])
         $scope.new_user_clicked = function(){
             $state.go('donor_signup');
         }
+         $scope.auth_true = function (){
+            $state.go('personalDetails');
+        }
 })
 .controller('hospitalHomeCtrl', function($scope, $cordovaSQLite){
     $scope.init = function(){}
@@ -93,7 +96,9 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova'])
 })
 
 .controller('organsDetailsCtrl', function($scope, $state) {
-
+    $scope.valid_organsDetails =  function(){
+        $state.go('confirmPage');
+    }
 })
 
 
