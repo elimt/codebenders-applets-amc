@@ -1,13 +1,22 @@
 <ion-view cache-view="false" view-title="List of Donors">
 	<ion-content class="padding">
+        <input type="text" ng-model="filterCriteria">
+<!--
+        <div class="card row" ng-repeat="donor in listOfDonors | filter: filterCriteria">
+            <div class="item item-text-wrap">
+                
+              <h2>{{ donor.name }}</h2>
+              <p>{{ donor.country }}</p>
+                <button>Contact</button>
+            </div>
+        </div>
+-->
         <div class="list">
-
-            <a class="item item-thumbnail-left" href="#" ng-repeat="donor in listOfDonors">
-              <img src="cover.jpg">
+            <a class="item item-avatar" href="#" ng-repeat="donor in listOfDonors | filter: filterCriteria">
+              <img src="../img/logo.png">
               <h2>{{ donor.name }}</h2>
               <p>{{ donor.country }}</p>
             </a>
-
         </div>
 	</ion-content>
 </ion-view>
