@@ -33,8 +33,13 @@
 	text-align: center;
 }
 
-
-
+.row{
+	text-align: center;
+	align-content: center;
+}
+h3{
+	text-align: center;
+}
 /*
 .scroll-content {
   display: table !important;
