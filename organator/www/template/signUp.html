@@ -3,6 +3,7 @@
         <div style="text-align:center;">
             <img src="img/userIcon.png" width="40%" height="auto">
         </div>
+        <h2 style="text-align:center;">Register as a Donor</h2>
         <form class="list">
             <ion-list>
                 <label class="item item-input">
@@ -17,6 +18,9 @@
                     <span class="input-label">Password</span>
                     <input type="text" placeholder="">
                 </label>
+                <label>
+      						<ion-checkbox ng-model="isChecked">Terms and Conditions</ion-checkbox>
+      					</label>
             </ion-list>
             <button class="button button-stable button-block " ng-click="auth_true()">Sign up</button>
         </form>
