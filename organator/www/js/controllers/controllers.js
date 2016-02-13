@@ -43,9 +43,9 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova'])
 .controller('hospitalHomeCtrl', function($scope, $cordovaSQLite){
     $scope.init = function(){}
     $scope.listOfDonors = [
-            {name:'ron', country:'Norway', blootype: 'O+'},
-            {name:'Hege',country:'Sweden'},
-            {name:'Kai',country:'Denmark'}
+            {name:'ron', country:'Norway', bloodType: 'O+', age: '22', organs: ['Kidneys', 'Heart', 'Eyes']},
+            {name:'Hege',country:'Sweden',  bloodType: 'AB-', age: '52', organs: ['Heart']},
+            {name:'Kai',country:'Denmark',  bloodType: 'O-', age: '21', organs: ['Heart', 'Eyes']}
     ];
 //    $scope.insert = function(firstname, lastname) {
 //        var query = "INSERT INTO people (firstname, lastname) VALUES (?,?)";
@@ -55,7 +55,7 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova'])
 //            console.error(err);
 //        });
 //    }
-// 
+//
 //    $scope.select = function(lastname) {
 //        var query = "SELECT firstname, lastname FROM people WHERE lastname = ?";
 //        $cordovaSQLite.execute(db, query, [lastname]).then(function(res) {
@@ -68,20 +68,20 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova'])
 //            console.error(err);
 //        });
 //    }
-   
+
 })
 .controller('donorsignupCtrl', function ($scope, $state) {
 		$scope.init = function () {}
         $scope.auth_true = function (){
             $state.go('personalDetails');
         }
-        
+
 })
 
 
 .controller('whyToDonateCtrl', function ($scope) {
 		$scope.init = function () {}
-        
+
 })
 .controller('personalDetailsCtrl', function($scope, $state) {
     $scope.valid_persoDetails =  function(){
@@ -109,6 +109,6 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova'])
 })
 .controller('healthFitnessCtrl', function($scope, $state) {
     $scope.init =  function(){
-        
+
     }
 });
