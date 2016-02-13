@@ -68,7 +68,7 @@ The Hospitals will be able to access the user information from various Donors to
 This feature enables the user to find the current location of the hospital and also find the location of hospitals around.
 
 # Setup + Open Source Libraries
-The [Ionic Framework](https:http://ionicframework.com/docs/guide/installation.html) was setup by first setting up a Cordova framework which will allow the Angular Javascript technologies developed by Google to generate an application that will work on both the Web outlets, Android Devices, _and_ even iOS Devices. Alongside Angular, Cordova, and Ionic, the Charts.JS open source libraries were also utilized to take advantage of the Google News, Hospital Location, and Organ Donar statistic API's that facilitated the aims of the application.
+The [Ionic Framework](http://ionicframework.com/docs/guide/installation.html) was setup by first setting up a Cordova framework which will allow the Angular Javascript technologies developed by Google to generate an application that will work on both the Web outlets, Android Devices, _and_ even iOS Devices. Alongside Angular, Cordova, and Ionic, the Charts.JS open source libraries were also utilized to take advantage of the Google News, Hospital Location, and Organ Donar statistic API's that facilitated the aims of the application.
 
 # License
 You can check out the full license [here](https://github.com/roncodingenthusiast/codebenders-applets-amc/blob/master/LICENSE)
