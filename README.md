@@ -29,6 +29,8 @@ Among all of the philanthropic initiatives that lie on the core principle of giv
 # Introduction
 Organator is a multi-platform developed mobile application which promotes Organ and Tissue donation. It has a donor and hospital type of account which has different a unique view with different functionalities. The application is split between two different functionalities. One is for all the gracoius donors out there in the public and the other for the various Hospitals that can take advantage of the massive list of Organ Donors the application will generate. Reaching this final idea is a product of exhaustive brainstorming and refinement among the team members to capture the delicate balance of novelty and urgent need amongst the community today.
 
+Members of society that are in need of Organ Donations are often overlooked in comparision to many of the other epidemmics that occur. There are a [staggering amount of fatalities](https://www.cihi.ca/en/types-of-care/specialized-services/organ-replacements/e-statistics-on-organ-transplants-waiting) that take place because of the ever enlarging waiting lists and the lack of other healthy individuals stepping up to offer their organs once they are no longer in need. With this problem in mind, a new app on a phone that can reach this 
+
 # Features
 ##### Donor Features
 - Sign up with iOS Medical ID or email address
