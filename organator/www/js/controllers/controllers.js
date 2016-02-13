@@ -21,9 +21,12 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('hospitalCtrl', function ($scope) {
+.controller('hospitalCtrl', function ($scope, $state) {
 
 		$scope.init = function () {}
+        $scope.hospital_login_clicked = function(){
+            $state.go('hospital_home');
+        }
 
 	})
 
@@ -32,10 +35,14 @@ angular.module('starter.controllers', [])
 		$scope.init = function () {}
 
 })
+.controller('hospitalHomeCtrl', function($scope){
+    $scope.init = function(){}
+   
+})
 .controller('whyToDonateCtrl', function ($scope) {
 		$scope.init = function () {}
-
-});
+        
+})
 
 
 .controller('personalDetailsCtrl', function($scope) {
@@ -52,4 +59,4 @@ angular.module('starter.controllers', [])
 
 .controller('confirmPageCtrl', function($scope) {
 
-})
+});
