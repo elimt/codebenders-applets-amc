@@ -43,7 +43,7 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova'])
 .controller('hospitalHomeCtrl', function($scope, $cordovaSQLite){
     $scope.init = function(){}
     $scope.listOfDonors = [
-            {name:'ron', country:'Norway'},
+            {name:'ron', country:'Norway', blootype: 'O+'},
             {name:'Hege',country:'Sweden'},
             {name:'Kai',country:'Denmark'}
     ];
