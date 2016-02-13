@@ -27,6 +27,7 @@ angular.module('starter.controllers', [])
 
 	})
 
+
 .controller('donorCtrl', function ($scope) {
 		$scope.init = function () {}
 
@@ -35,3 +36,20 @@ angular.module('starter.controllers', [])
 		$scope.init = function () {}
 
 });
+
+
+.controller('personalDetailsCtrl', function($scope) {
+
+})
+
+.controller('addressDetailsCtrl', function($scope) {
+
+})
+
+.controller('organsDetailsCtrl', function($scope) {
+
+})
+
+.controller('confirmPageCtrl', function($scope) {
+
+})
