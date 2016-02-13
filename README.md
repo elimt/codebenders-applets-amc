@@ -74,5 +74,3 @@ The [Ionic Framework](http://ionicframework.com/docs/guide/installation.html) wa
 You can check out the full license [here](https://github.com/roncodingenthusiast/codebenders-applets-amc/blob/master/LICENSE)
 <br>
 This project is licensed under the terms of the MIT license.
-
-
