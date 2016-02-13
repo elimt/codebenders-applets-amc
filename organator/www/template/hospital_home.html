@@ -1,4 +1,13 @@
 <ion-view cache-view="false" view-title="List of Donors">
 	<ion-content class="padding">
+        <div class="list">
+
+            <a class="item item-thumbnail-left" href="#" ng-repeat="donor in listOfDonors">
+              <img src="cover.jpg">
+              <h2>{{ donor.name }}</h2>
+              <p>{{ donor.country }}</p>
+            </a>
+
+        </div>
 	</ion-content>
 </ion-view>

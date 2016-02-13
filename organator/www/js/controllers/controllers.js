@@ -37,10 +37,16 @@ angular.module('starter.controllers', [])
 })
 .controller('hospitalHomeCtrl', function($scope){
     $scope.init = function(){}
+    $scope.listOfDonors = [
+            {name:'ron', country:'Norway'},
+            {name:'Hege',country:'Sweden'},
+            {name:'Kai',country:'Denmark'}
+    ];
    
 })
 .controller('whyToDonateCtrl', function ($scope) {
 		$scope.init = function () {}
+        
 })
 .controller('personalDetailsCtrl', function($scope) {
 
