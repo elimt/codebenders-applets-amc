@@ -46,8 +46,8 @@ angular.module('starter', ['ionic','ui.router','starter.controllers'])
 	})
 
 	// Each tab has its own nav history stack:
-	.state('donar', {
-			url: '/donar',
+	.state('donor', {
+			url: '/donor',
 			cache: false,
 			//		 abstract: true,
 			templateUrl: 'template/donar_login.html',
