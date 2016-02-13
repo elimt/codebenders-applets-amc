@@ -34,19 +34,33 @@ Members of society that are in need of Organ Donations are often overlooked in c
 # Features
 ##### Donor Features
 - Sign up with iOS Medical ID or email address
+Donors have the option of signing up for donation with their iOS Medical ID. This iOS Medical ID would have statistics about the health of the donor which would be used to setup the profile of the donor. The donor also has the option of signing up via an email address as well which would be followed by a series of questions to setup
+the profile of the donor.
+
 - Select organs or tissues to donate
+During the signing up process of the donors, the donors has the option to choose between organs and tissues (Kidneys, Heart, Eyes, Bone, Liver, Lungs, Skin and Pancreas) which they would like to donate. These options can be edited after signing up by login into their account and making changes to the selections.
+
 - Organ Donation Card
+The donor would have an electronic donor card once the donor signs up to become a donor. This donor card can be used where applicable
+
 - Health Tips  
+The donor would recieve frequest tips on how to stay healthy. There would be a lot of tips directed towards keeping the selected organs for donation healthy as well.
 
 ##### Hospital Features
 - Sign in with authorized account
-- View donor information
-- Filter according to required donor info
-- Contact options
-- Hospital Locator
+To prevent anyone from signing up as a hospital we would have a set of authorized logins which would be used by hospitals to have access to donor information. Hospitals which do not have accounts can request a login in code which would involve going through authentication steps
 
-# Setup
-The [Ionic Framework](https:http://ionicframework.com/docs/guide/installation.html) was setup by 
+- View donor information and Filter according to required donor info
+Hospitals which have access would be able to view information of donors. This information would include donation, blood type, age and other necessary fields. There would be a filter option which would enable the hospital to filter the information according to the to the organ or tissue needed. A selected donor can be contacted by the hospital for donation.
+
+- Contact options
+The Hospitals will be able to access the user information from various Donors to be  approached during the applicable times to take advantage of any sudden happenings that occur to bring about the most utilitarian outcomes possible.
+
+- Hospital Locator
+This feature enables the user to find the current location of the hospital and also find the location of hospitals around.
+
+# Setup + Open Source Libraries
+The [Ionic Framework](https:http://ionicframework.com/docs/guide/installation.html) was setup by first setting up a Cordova framework which will allow the Angular Javascript technologies developed by Google to generate an application that will work on both the Web outlets, Android Devices, _and_ even iOS Devices. Alongside Angular, Cordova, and Ionic, the Charts.JS open source libraries were also utilized to take advantage of the Google News, Hospital Location, and Organ Donar statistic API's that facilitated the aims of the application.
 
 # License
 You can check out the full license [here](https://github.com/roncodingenthusiast/codebenders-applets-amc/blob/master/LICENSE)
