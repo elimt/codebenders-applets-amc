@@ -1,4 +1,4 @@
-# ApplETS Mobile Challenge, 3rd Edition
+# Applets Mobile Challenge, 3rd Edition
 
 ## Team Name: Code Benders
 ### Team Members: 
