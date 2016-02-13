@@ -28,7 +28,6 @@ CREATE TABLE Hospital
    HospitalName varchar(50) NOT NULL,
    H_Username varchar(50) NOT NULL,
    H_Password varchar(50) NOT NULL,
-   Blood Type varchar (30) NOT NULL,
    Province varchar(50), NOT NULL,
    DateAsked varchar(50) NOT NULL,
    Address varchar(50)
