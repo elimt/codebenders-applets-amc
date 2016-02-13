@@ -41,7 +41,11 @@ angular.module('starter.controllers', [])
 })
 .controller('whyToDonateCtrl', function ($scope) {
 		$scope.init = function () {}
+<<<<<<< Updated upstream
         
+=======
+
+>>>>>>> Stashed changes
 })
 
 
