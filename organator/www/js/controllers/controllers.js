@@ -41,12 +41,8 @@ angular.module('starter.controllers', [])
 })
 .controller('whyToDonateCtrl', function ($scope) {
 		$scope.init = function () {}
-<<<<<<< HEAD
         
-});
-=======
-
-});
+})
 
 
 .controller('personalDetailsCtrl', function($scope) {
@@ -63,5 +59,4 @@ angular.module('starter.controllers', [])
 
 .controller('confirmPageCtrl', function($scope) {
 
-})
->>>>>>> b75470ae3855b8cbf8293a7eb357538ec7bf4888
+});
