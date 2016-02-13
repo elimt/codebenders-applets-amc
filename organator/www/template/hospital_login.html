@@ -1,5 +1,8 @@
 <ion-view cache-view="false" view-title="Hospital">
-	<ion-content class="padding">
+	<ion-content class="padding" has-header="true" padding="true">
+		<div class="row margin-bottom-10">
+				<img src="/img/icon.jpg" width="10%" class="col" height="auto">
+		</div>
         <div class="list margin-top-50">
           <label class="item item-input margin-top-50">
             <span class="input-label">Hospital Code</span>
@@ -9,8 +12,11 @@
             <span class="input-label">Password</span>
             <input type="password">
           </label>
-            <button class="button button-positive button-full" ng-click="hospital_login_clicked()">
-              SignIn
+					<label>
+						<ion-checkbox ng-model="isChecked">Terms and Conditions</ion-checkbox>
+					</label>
+						<button class="button button-positive button-full" ng-click="hospital_login_clicked()">
+              Sign In
             </button>
         </div>
 	</ion-content>
