@@ -43,9 +43,10 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova'])
 .controller('hospitalHomeCtrl', function($scope, $cordovaSQLite){
     $scope.init = function(){}
     $scope.listOfDonors = [
-            {name:'ron', country:'Norway', bloodType: 'O+', age: '22', organs: ['Kidneys', 'Heart', 'Eyes']},
-            {name:'Hege',country:'Sweden',  bloodType: 'AB-', age: '52', organs: ['Heart']},
-            {name:'Kai',country:'Denmark',  bloodType: 'O-', age: '21', organs: ['Heart', 'Eyes']}
+            {name:'ron', country:'Canada', province: 'QC', bloodType: 'O+', age: '22', organs: ['Kidneys', 'Heart', 'Eyes']},
+            {name:'Hege',country:'Canada', province: 'QC', bloodType: 'AB-', age: '52', organs: ['Heart']},
+            {name:'Kai',country:'Canada',  province: 'QC', bloodType: 'O-', age: '21', organs: ['Heart', 'Eyes']}, 
+            {name:'Kai',country:'Canada',  province: 'QC', bloodType: 'A+', age: '19', organs: ['Skin', 'Eyes']}
     ];
 //    $scope.insert = function(firstname, lastname) {
 //        var query = "INSERT INTO people (firstname, lastname) VALUES (?,?)";

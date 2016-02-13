@@ -13,15 +13,15 @@
 -->
         <div class="list">
             <a class="item item-avatar" href="#" ng-repeat="donor in listOfDonors | filter: filterCriteria">
-              <img src="../img/logo.png">
+              <img src="../img/logo.jpg">
               <h2>{{ donor.name }}</h2>
-              <p>{{ donor.country }}</p>
-                <button class="button" ng-click="insert('roy', 'ron')">
-                    Insert
-                </button>
-                <button class="button" ng-click="select('ron')">
-                    Insert
-                </button>
+              <p>Country: {{ donor.country }}<br>
+                 Province: {{ donor.province }}<br>
+                 Blood Type: {{donor.bloodType}}<br>
+                 Age: {{donor.age}}<br>
+                 Organs: <span ng-repeat="(key, val) in donor.organs"> {{ val }} </span>
+              </p>
+                
             </a>
         </div>
 	</ion-content>
