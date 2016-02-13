@@ -64,7 +64,8 @@ angular.module('starter', ['ionic','ui.router','starter.controllers'])
         .state('hospital_home', {
             url: '/hospital_home', 
             cache: false, 
-            templateUrl: 'template/hospital_home.html'
+            templateUrl: 'template/hospital_home.html',
+            controller: 'hospitalHomeCtrl'
         })
 		// if none of the above states are matched, use this as the fallback
 	$urlRouterProvider.otherwise('/home');
