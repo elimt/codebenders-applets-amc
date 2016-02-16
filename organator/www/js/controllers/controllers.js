@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [ 'ionic', 'ngCordova'])
+angular.module('starter.controllers', [ 'ionic', 'ngCordova', 'firebase'])
 
 .controller('AppCntrl', function ($scope, $state) {
 
