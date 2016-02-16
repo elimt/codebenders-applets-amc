@@ -1,5 +1,8 @@
 angular.module('starter.controllers', [ 'ionic', 'ngCordova', 'firebase'])
-
+.factory("Users", function($firebaseArray){
+    var itemsRef = new Firebase("https://organator.firebaseio.com/");
+    return $firebaseArray(itemsRef);
+})
 .controller('AppCntrl', function ($scope, $state) {
 
 	$scope.init = function () {
@@ -39,15 +42,17 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova', 'firebase'])
          $scope.auth_true = function (){
             $state.go('personalDetails');
         }
+         
 })
-.controller('hospitalHomeCtrl', function($scope, $cordovaSQLite){
+.controller('hospitalHomeCtrl', function($scope, $cordovaSQLite, Users){
     $scope.init = function(){}
-    $scope.listOfDonors = [
-            {name:'ron', country:'Canada', province: 'QC', bloodType: 'O+', age: '22', organs: ['Kidneys', 'Heart', 'Eyes']},
-            {name:'Hege',country:'Canada', province: 'QC', bloodType: 'AB-', age: '52', organs: ['Heart']},
-            {name:'Kai',country:'Canada',  province: 'QC', bloodType: 'O-', age: '21', organs: ['Heart', 'Eyes']}, 
-            {name:'Kai',country:'Canada',  province: 'QC', bloodType: 'A+', age: '19', organs: ['Skin', 'Eyes']}
-    ];
+    $scope.listOfDonors = Users;
+//    $scope.listOfDonors = [
+//            {name:'ron', country:'Canada', province: 'QC', bloodType: 'O+', age: '22', organs: ['Kidneys', 'Heart', 'Eyes']},
+//            {name:'Hege',country:'Canada', province: 'QC', bloodType: 'AB-', age: '52', organs: ['Heart']},
+//            {name:'Kai',country:'Canada',  province: 'QC', bloodType: 'O-', age: '21', organs: ['Heart', 'Eyes']}, 
+//            {name:'Kai',country:'Canada',  province: 'QC', bloodType: 'A+', age: '19', organs: ['Skin', 'Eyes']}
+//    ];
 //    $scope.insert = function(firstname, lastname) {
 //        var query = "INSERT INTO people (firstname, lastname) VALUES (?,?)";
 //        $cordovaSQLite.execute(db, query, [firstname, lastname]).then(function(res) {
@@ -71,12 +76,20 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova', 'firebase'])
 //    }
 
 })
-.controller('donorsignupCtrl', function ($scope, $state) {
+.controller('donorsignupCtrl', function ($scope, $state, Users) {
+        $scope.users = Users;
 		$scope.init = function () {}
         $scope.auth_true = function (){
             $state.go('personalDetails');
         }
-
+        $scope.add_user = function(){
+            var name = prompt("try this");
+            if(name){
+                $scope.users.$add({
+                    "name": name
+                });
+            }
+        }
 })
 
 
