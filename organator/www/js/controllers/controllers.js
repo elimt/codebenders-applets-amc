@@ -47,34 +47,6 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova', 'firebase'])
 .controller('hospitalHomeCtrl', function($scope, $cordovaSQLite, Users){
     $scope.init = function(){}
     $scope.listOfDonors = Users;
-//    $scope.listOfDonors = [
-//            {name:'ron', country:'Canada', province: 'QC', bloodType: 'O+', age: '22', organs: ['Kidneys', 'Heart', 'Eyes']},
-//            {name:'Hege',country:'Canada', province: 'QC', bloodType: 'AB-', age: '52', organs: ['Heart']},
-//            {name:'Kai',country:'Canada',  province: 'QC', bloodType: 'O-', age: '21', organs: ['Heart', 'Eyes']}, 
-//            {name:'Kai',country:'Canada',  province: 'QC', bloodType: 'A+', age: '19', organs: ['Skin', 'Eyes']}
-//    ];
-//    $scope.insert = function(firstname, lastname) {
-//        var query = "INSERT INTO people (firstname, lastname) VALUES (?,?)";
-//        $cordovaSQLite.execute(db, query, [firstname, lastname]).then(function(res) {
-//            console.log("INSERT ID -> " + res.insertId);
-//        }, function (err) {
-//            console.error(err);
-//        });
-//    }
-//
-//    $scope.select = function(lastname) {
-//        var query = "SELECT firstname, lastname FROM people WHERE lastname = ?";
-//        $cordovaSQLite.execute(db, query, [lastname]).then(function(res) {
-//            if(res.rows.length > 0) {
-//                console.log("SELECTED -> " + res.rows.item(0).firstname + " " + res.rows.item(0).lastname);
-//            } else {
-//                console.log("No results found");
-//            }
-//        }, function (err) {
-//            console.error(err);
-//        });
-//    }
-
 })
 .controller('donorsignupCtrl', function ($scope, $state, Users) {
         $scope.users = Users;
@@ -83,12 +55,11 @@ angular.module('starter.controllers', [ 'ionic', 'ngCordova', 'firebase'])
             $state.go('personalDetails');
         }
         $scope.add_user = function(){
-            var name = prompt("try this");
-            if(name){
-                $scope.users.$add({
-                    "name": name
-                });
-            }
+            $scope.users.$add({
+                "name": '$scope.name',
+                "email": '$scope.email', 
+                "password": 'password'
+            });
         }
 })
 
