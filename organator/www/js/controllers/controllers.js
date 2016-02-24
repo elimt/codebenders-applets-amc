@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [ 'ionic', 'ngCordova', 'firebase'])
+angular.module('starter', ['ionic','ui.router','starter.controllers', 'ngCordova', 'firebase', 'ngMessages'])
 .factory("Users", function($firebaseArray){
     var itemsRef = new Firebase("https://organator.firebaseio.com/");
     return $firebaseArray(itemsRef);
