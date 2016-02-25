@@ -19,7 +19,8 @@
    required>
 </label>
 
-<div class="form-errors" ng-messages="signinForm.username.$error" ng-messages-include="templates/form-errors.html">  
+<div class="form-errors" ng-messages="signinForm.username.$error" >
+    <div ng-messages-include="template/form-errors.html"></div>
 <div class="form-error" ng-message="maxlength">This field is must be less than 10 characters</div>  
 </div> 
 
@@ -36,7 +37,8 @@
 <div class="form-errors"  
    ng-show="signinForm.password.$error && signinForm.$submitted"
    ng-messages="signinForm.password.$error"
-   ng-messages-include="templates/form-errors.html">
+   >
+    <div ng-messages-include="template/form-errors.html"></div>
 </div>
 
 		<ion-checkbox ng-model="filter.blue">Remember Me</ion-checkbox>
