@@ -1,7 +1,7 @@
 //declare database to be open
 var db = null;
 
-angular.module('starter', ['ionic','ui.router','starter.controllers', 'ngCordova', 'firebase'])
+angular.module('starter', ['ionic','ui.router','starter.controllers', 'ngCordova', 'firebase', 'ngMessages'])
 
 .run(function ($ionicPlatform, $cordovaSQLite) {
 	$ionicPlatform.ready(function () {
