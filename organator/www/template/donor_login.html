@@ -1,47 +1,54 @@
-<ion-view cache-view="false" view-title="Donor">
-	<ion-content class="padding">
-		<div class="row margin-bottom-30">
-            <div class="col">
-                <!-- <span class="row margin-bottom-10">
-										<img src="/img/icon.jpg" width="5px" class="col">
-								</span> -->
-            </div>
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Donor</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doLogin()" name="loginForm">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" name="username" ng-model="loginData.username" ng-minlength="3" ng-maxlength="30" required>
+        </label>        
+        <div ng-messages="loginForm.username.$error" ng-messages-include="templates/error-messages.html" 
+        class="form-errors" ng-if="loginForm.username.$touched">
+          <div class="form-error" ng-message="required">Please enter your Username (At least 3 characters)</div>
         </div>
-		<div class="list list-inset">
-          <label class="item item-input">
-            <input type="text" placeholder="Username">
-          </label>
-
-          <label class="item item-input">
-            <input type="text" placeholder="Password">
-          </label>
-
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" name="password" ng-model="loginData.password" ng-minlength="6" ng-maxlength="30" required>
+        </label>
+        <div ng-messages="loginForm.password.$error" ng-messages-include="templates/error-messages.html" 
+        class="form-errors" ng-if="loginForm.username.$touched">
+          <div class="form-error" ng-message="required">Please enter your Password (At least 6 characters)</div>
+        </div>
 		<ion-checkbox ng-model="filter.blue">Remember Me</ion-checkbox>
-	</div>
-		<div class="row">
-            <button class="button button-full button-positive" ng-click="auth_true()">
-              Sign In
-            </button>
-		</div>
-
-        <div class="row">
+        <label class="item">
+          <button class="button button-block button-positive" type="submit" ng-disabled="loginForm.$invalid" ng-click="auth_true()">Sign In</button>
+        </label>
+      </div>
+	  
+	   <div class="row">
             <button class="button button-full button-clear button-positive title" ng-click="forgot_password()">
 				Forget Password?
 			</button>
         </div>
 
-		<h3>OR</h3>
+		<h3 style="text-align:center;">OR</h3>
 		<div class="row">
             <button class="button button-block button-balanced" ng-click="auth_true()">
               Sign In With Medical Id
             </button>
 		</div>
-	</ion-content>
-	<ion-footer-bar class="bar-stable center">
+    </form>
+  </ion-content>
+  <ion-footer-bar class="bar-stable center">
 		<div>
 		<button class="button button-clear button-positive title" ng-click="new_user_clicked()">
 				New User?
 			</button>
 			</div>
 	</ion-footer-bar>
-</ion-view>
+</ion-modal-view>
