@@ -24,43 +24,6 @@
         class="form-errors" ng-if="loginForm.username.$touched">
           <div class="form-error" ng-message="required">Please enter your Password (At least 6 characters)</div>
         </div>
-<<<<<<< HEAD
-=======
-		<div class="list list-inset">
-         <label class="item item-input"  
-   ng-class="{ 'has-error' : signinForm.username.$invalid}">
-<span class="input-label">Username</span>  
-<input type="text"  
-   name="username"
-   ng-model="user.username" 
-   ng-minlength="5" 
-   ng-maxlength="10" 
-   required>
-</label>
-
-<div class="form-errors" ng-messages="signinForm.username.$error" >
-    <div ng-messages-include="template/form-errors.html"></div>
-<div class="form-error" ng-message="maxlength">This field is must be less than 10 characters</div>  
-</div> 
-
-          <label class="item item-input"  
-   ng-class="{ 'has-error-lr' : signinForm.password.$invalid  && signinForm.$submitted, 'valid-lr' : signinForm.password.$valid  && signinForm.$submitted}">
-  <span class="input-label">Password</span>
-  <input type="password"
-   name="password"
-   ng-model="user.password" 
-   ng-minlength="5" 
-   ng-maxlength="25"
-   required>
-</label>  
-<div class="form-errors"  
-   ng-show="signinForm.password.$error && signinForm.$submitted"
-   ng-messages="signinForm.password.$error"
-   >
-    <div ng-messages-include="template/form-errors.html"></div>
-</div>
-
->>>>>>> 381709f7212b97297b87dfa93f5760cf3f5f4e40
 		<ion-checkbox ng-model="filter.blue">Remember Me</ion-checkbox>
         <label class="item">
           <button class="button button-block button-positive" type="submit" ng-disabled="loginForm.$invalid" ng-click="auth_true()">Sign In</button>
