@@ -5,9 +5,12 @@
             <p>"I am consenting to be an organ donor after my death."</p>
         </div>
         <form class="list">
-            <ion-toggle toggle-class="toggle-positive" name="Accept">Accept</ion-toggle>
+		<label>
+            <ion-toggle toggle-class="toggle-positive" name="accept" ng-model="checked" ng-true-value="false" ng-false-value="true">Accept</ion-toggle>
+			</label>
+        </div>
         </form>
-        <button class="button button-stable button-block  icon-right ion-android-done" ng-click="valid_confirmation()"> Confirm </button>
+        <button class="button button-stable button-block  icon-right ion-android-done" ng-disabled="checked" ng-click="valid_confirmation()" > Confirm </button>
         <a ui-sref="organsDetails" class="button button-stable button-block  icon-left ion-android-arrow-back">Back: Organs Details</a>
     </ion-content>
 </ion-view>

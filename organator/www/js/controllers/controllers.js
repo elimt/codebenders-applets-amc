@@ -1,27 +1,27 @@
-angular.module('starter.controllers', [ 'ionic', 'ngCordova', 'firebase'])
-.factory("Users", function($firebaseArray){
-    var itemsRef = new Firebase("https://organator.firebaseio.com/");
-    return $firebaseArray(itemsRef);
-})
-.controller('AppCntrl', function ($scope, $state) {
+angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'firebase', 'ngMessages'])
+    .factory("Users", function($firebaseArray){
+        var itemsRef = new Firebase("https://organator.firebaseio.com/");
+        return $firebaseArray(itemsRef);
+    })
+    .controller('AppCntrl', function ($scope, $state) {
 
-	$scope.init = function () {
+        $scope.init = function () {
 
-	}
+        }
 
-	$scope.hospital_clicked = function () {
+        $scope.hospital_clicked = function () {
 
-		$state.go('hospital');
-	}
-	$scope.donor_clicked = function () {
+            $state.go('hospital');
+        }
+        $scope.donor_clicked = function () {
 
-		$state.go('donor');
-	}
-	$scope.why_donate = function () {
+            $state.go('donor');
+        }
+        $scope.why_donate = function () {
 
-		$state.go('whyToDonate');
-	}
-})
+            $state.go('whyToDonate');
+        }
+    })
 
 
 .controller('hospitalCtrl', function ($scope, $state) {
