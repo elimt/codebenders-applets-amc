@@ -25,11 +25,27 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
 
 
 .controller('hospitalCtrl', function ($scope, $state) {
-
+        $scope.loginData = {};
 		$scope.init = function () {}
-        $scope.hospital_login_clicked = function(){
+		$scope.hospital_login_clicked = function(){
+ 
+  var ref = new Firebase("https://organator.firebaseio.com");
+ 
+  ref.authWithPassword({
+    email    : $scope.loginData.email,
+    password : $scope.loginData.password
+  }, function(error, authData) {
+    if (error) {
+      console.log("Login Failed!", error);
+    } else {
+      console.log("Authenticated successfully with payload:", authData);
             $state.go('hospital_home');
-        }
+        
+    }
+  });
+ 
+}
+        
 
 	})
 
@@ -49,18 +65,25 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
     $scope.listOfDonors = Users;
 })
 .controller('donorsignupCtrl', function ($scope, $state, Users) {
-        $scope.users = Users;
+        $scope.Model = {};
 		$scope.init = function () {}
-        $scope.auth_true = function (){
-            $state.go('personalDetails');
-        }
-        $scope.add_user = function(){
-            $scope.users.$add({
-                "name": '$scope.name',
-                "email": '$scope.email', 
-                "password": 'password'
-            });
-        }
+     
+        $scope.signupEmail = function(email,  password){  
+ 
+  var ref = new Firebase("https://organator.firebaseio.com");
+ 
+  ref.createUser({
+    email    : $scope.Model.email,
+    password : $scope.Model.password
+  }, function(error, userData) {
+    if (error) {
+      console.log("Error creating user:", error);
+    } else {
+      console.log("Successfully created user account with uid:", userData.uid);
+    }
+  });
+ 
+};
 })
 
 
