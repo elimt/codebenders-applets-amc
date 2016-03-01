@@ -79,7 +79,7 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
       console.log("Authenticated successfully with payload:", authData);
             $state.go('personalDetails');
     }  }, {
-  remember: "sessionOnly"
+  remember: "default"
 });
  
 }
@@ -94,7 +94,7 @@ ref.authWithOAuthPopup("google", function(error, authData) {
     $state.go('personalDetails');
   }
 }, {
-  remember: "sessionOnly",
+  remember: "default",
   scope: "email"
 }
 );
@@ -110,7 +110,7 @@ ref.authWithOAuthPopup("facebook", function(error, authData) {
     $state.go('personalDetails');
   }
 }, {
-  remember: "sessionOnly",
+  remember: "default",
   scope: "email,user_likes"
 }
 );
