@@ -25,6 +25,7 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
 
 
 .controller('hospitalCtrl', function ($scope, $state) {
+         $scope.myvalue = false;
         $scope.loginData = {};
 		$scope.init = function () {}
 		$scope.hospital_login_clicked = function(){
@@ -37,12 +38,16 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
   }, function(error, authData) {
     if (error) {
       console.log("Login Failed!", error);
+      $scope.loginData.errorMessage = 'Email or password is incorrect';
+      $scope.myvalue = true;
+      $scope.init="submit=true"
     } else {
       console.log("Authenticated successfully with payload:", authData);
             $state.go('hospital_home');
         
-    }
-  });
+    }  }, {
+  remember: "sessionOnly"
+});
  
 }
         
@@ -51,13 +56,65 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
 
 
 .controller('donorCtrl', function ($scope, $state) {
+     $scope.myvalue = false;
+        $scope.loginData = {};
 		$scope.init = function () {}
         $scope.new_user_clicked = function(){
             $state.go('donor_signup');
+            
         }
-         $scope.auth_true = function (){
+         $scope.auth_true = function(){
+ 
+  var ref = new Firebase("https://organator.firebaseio.com");
+ 
+  ref.authWithPassword({
+    email    : $scope.loginData.email,
+    password : $scope.loginData.password
+  }, function(error, authData) {
+    if (error) {
+      console.log("Login Failed!", error);
+      $scope.loginData.errorMessage = 'Email or password is incorrect';
+       $scope.myvalue = true;
+    } else {
+      console.log("Authenticated successfully with payload:", authData);
             $state.go('personalDetails');
-        }
+    }  }, {
+  remember: "sessionOnly"
+});
+ 
+}
+
+$scope.auth_true_Gmail = function(){
+var ref = new Firebase("https://organator.firebaseio.com");
+ref.authWithOAuthPopup("google", function(error, authData) {
+  if (error) {
+    console.log("Login Failed!", error);
+  } else {
+    console.log("Authenticated successfully with payload:", authData);
+    $state.go('personalDetails');
+  }
+}, {
+  remember: "sessionOnly",
+  scope: "email"
+}
+);
+}
+
+$scope.auth_true_Facebook = function(){
+var ref = new Firebase("https://organator.firebaseio.com");
+ref.authWithOAuthPopup("facebook", function(error, authData) {
+  if (error) {
+    console.log("Login Failed!", error);
+  } else {
+    console.log("Authenticated successfully with payload:", authData);
+    $state.go('personalDetails');
+  }
+}, {
+  remember: "sessionOnly",
+  scope: "email,user_likes"
+}
+);
+}
          
 })
 .controller('hospitalHomeCtrl', function($scope, $cordovaSQLite, Users){
@@ -65,6 +122,7 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
     $scope.listOfDonors = Users;
 })
 .controller('donorsignupCtrl', function ($scope, $state, Users) {
+    $scope.myvalue = false;
         $scope.Model = {};
 		$scope.init = function () {}
      
@@ -78,8 +136,10 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
   }, function(error, userData) {
     if (error) {
       console.log("Error creating user:", error);
+      
     } else {
       console.log("Successfully created user account with uid:", userData.uid);
+      $scope.myvalue = true;
     }
   });
  

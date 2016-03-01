@@ -22,7 +22,9 @@
       						<ion-checkbox ng-model="isChecked">Terms and Conditions</ion-checkbox>
       					</label>
             </ion-list>
-            <button class="button button-positive button-block " ng-click="signupEmail(email, password)">Sign Up</button>
+            <button class="button button-positive button-block " ng-click="signupEmail()">Sign Up</button>
+            
+            <div ng-show="myvalue" style="text-align:center;">Signup Successful</div>
         </form>
     </ion-content>
 </ion-view>
