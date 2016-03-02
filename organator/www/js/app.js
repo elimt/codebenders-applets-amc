@@ -36,7 +36,12 @@ angular.module('starter', ['ionic','ui.router','starter.controllers', 'ngCordova
 	.state('donor', {
 			url: '/donor',
 			cache: false,
-			templateUrl: 'template/donor_login.html',
+			templateUrl: function(){
+                if(ionic.Platform.isAndroid()){
+                    return 'template/droid_donor_login.html';
+                }
+                return 'template/donor_login.html';
+            },
 			controller: 'donorCtrl'
 		})
 		// Each tab has its own nav history stack:
