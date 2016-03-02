@@ -1,42 +1,43 @@
-<ion-view cache-view="false" view-title="Hospital">
-	<ion-content class="padding" has-header="true" padding="true">
-		<div class="row margin-bottom-10">
-				<img src="/img/icon.jpg" width="10%" class="col" height="auto">
-		</div>
-        <form ng-submit="doLogin()" name="loginForm">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" name="email" ng-model="loginData.email" ng-minlength="5" ng-maxlength="30" required>
-        </label>        
-        <div ng-messages="loginForm.email.$error" ng-messages-include="templates/error-messages.html" 
-        class="form-errors" ng-if="loginForm.email.$touched">
-          <div class="form-error" ng-message="required">Please enter your Email</div>
-        </div>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" name="password" ng-model="loginData.password" ng-minlength="5" ng-maxlength="30" required>
-        </label>
-        <div ng-messages="loginForm.password.$error" ng-messages-include="templates/error-messages.html" 
-        class="form-errors" ng-if="loginForm.email.$touched">
-          <div class="form-error" ng-message="required">Please enter your Password</div>
-        </div>
-		</form>
-		
-          </label>
-					<label>
-						<ion-checkbox ng-model="isChecked">Terms and Conditions</ion-checkbox>
-					</label>
-						<button class="button button-positive button-full" ng-disabled="loginForm.$invalid" ng-click="hospital_login_clicked()">
-              Sign In
-            </button>
-             <div ng-show="myvalue" style="text-align:center;">Email or Password is wrong</div>
-      </div>
-        </div>
-				  <h4 style="text-align:center; margin-top: 40px">Don't have a code?</h4>
-					<button class="button button-full button-light">
-  						Request for Code
-					</button>
+    <ion-view cache-view="false" view-title="Hospital">
+        <ion-content class="padding" has-header="true" padding="true">
+            <div class="row margin-bottom-10">
+                    <img src="/img/icon.jpg" width="10%" class="col" height="auto">
+            </div>
+            <form ng-submit="doLogin()" name="loginForm">
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">Username</span>
+              <input type="text" name="email" ng-model="loginData.email" ng-minlength="5" ng-maxlength="30" required>
+            </label>        
+            <div ng-messages="loginForm.email.$error"  
+            class="form-errors" ng-if="loginForm.email.$touched">
+                <div ng-messages-include="templates/error-messages.html"></div>
+              <div class="form-error" ng-message="required">Please enter your Email</div>
+            </div>
+            <label class="item item-input">
+              <span class="input-label">Password</span>
+              <input type="password" name="password" ng-model="loginData.password" ng-minlength="5" ng-maxlength="30" required>
+            </label>
+            <div ng-messages="loginForm.password.$error" class="form-errors" ng-if="loginForm.email.$touched">
+                <div ng-messages-include="templates/error-messages.html"></div>
+              <div class="form-error" ng-message="required">Please enter your Password</div>
+            </div>
+            </form>
 
-	</ion-content>
-</ion-view>
+              </label>
+                        <label>
+                            <ion-checkbox ng-model="isChecked">Terms and Conditions</ion-checkbox>
+                        </label>
+                            <button class="button button-positive button-full" ng-disabled="loginForm.$invalid" ng-click="hospital_login_clicked()">
+                  Sign In
+                </button>
+                 <div ng-show="myvalue" style="text-align:center;">Email or Password is wrong</div>
+          </div>
+            </div>
+                      <h4 style="text-align:center; margin-top: 40px">Don't have a code?</h4>
+                        <button class="button button-full button-light">
+                            Request for Code
+                        </button>
+
+        </ion-content>
+    </ion-view>

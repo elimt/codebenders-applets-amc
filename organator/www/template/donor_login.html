@@ -12,16 +12,18 @@
           <span class="input-label">Email</span>
           <input type="text" name="username" ng-model="loginData.email" ng-minlength="3" ng-maxlength="30" required>
         </label>        
-        <div ng-messages="loginForm.username.$error" ng-messages-include="templates/error-messages.html" 
+        <div ng-messages="loginForm.username.$error" 
         class="form-errors" ng-if="loginForm.username.$touched">
+            <div ng-messages-include="templates/error-messages.html" ></div>
           <div class="form-error" ng-message="required">Please enter your Email (At least 3 characters)</div>
         </div>
         <label class="item item-input">
           <span class="input-label">Password</span>
           <input type="password" name="password" ng-model="loginData.password" ng-minlength="5" ng-maxlength="30" required>
         </label>
-        <div ng-messages="loginForm.password.$error" ng-messages-include="templates/error-messages.html" 
+        <div ng-messages="loginForm.password.$error"  
         class="form-errors" ng-if="loginForm.username.$touched">
+            <div ng-messages-include="templates/error-messages.html"></div>
           <div class="form-error" ng-message="required">Please enter your Password (At least 5 characters)</div>
         </div>
 		<ion-checkbox ng-model="filter.blue">Remember Me</ion-checkbox>
