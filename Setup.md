@@ -15,8 +15,8 @@ Note: Once downloaded, a couple of commands will need to be executed
 5. ABC of github 
   git status: to see what file has changed since your last commit 
 
-git checkout insertbranchname : to switch to a branch
-
-4. To update your stuff (all this happens when you are in the : 
-  git pull 
+  git checkout insertbranchname : to switch to a branch
+  git pull: drag all updated files on branch/repo to your laptop
+  git push: send all your commits and code online
+  git fetch: gets metadata from github (
 
