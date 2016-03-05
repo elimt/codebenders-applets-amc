@@ -1,21 +1,11 @@
 <ion-view title="Health &amp; Fitness">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <ion-list>
-            <ion-item class="item-thumbnail-left" href="#" onclick="window.open('http://www.nhs.uk/Livewell/fitness/Pages/Activelifestyle.aspx', '_system', 'location=yes'); return false;">
-                <img src="img/family.jpg">
-                <h2>Get active your way</h2>
-                <p>Ideas for busy mums and dads, families, young people, office workers and older adults to build activity into their life.</p>
-            </ion-item>
-            <ion-item class="item-thumbnail-left" href="#" onclick="window.open('http://www.nhs.uk/livewell/fitness/pages/physical-activity-guidelines-for-adults.aspx', '_system', 'location=yes'); return false;">
-                <img src="img/swimmer.jpg">
-                <h2>Physical exercises: Adult</h2>
-                <p>Guidelines for adults aged 19-64, for general health and fitness.</p>
-            </ion-item>
-            <ion-item class="item-thumbnail-left" href="#" onclick="window.open('http://www.nhs.uk/Livewell/fitness/Pages/Do-I-need-to-stretch-before-or-after-a-run-or-sports-and-exercise.aspx', '_system', 'location=yes'); return false;">
-                <img src="img/stretch.jpg">
-                <h2>Do I need to stretch before exercising?</h2>
-                <p>Whether you're a weekend warrior or competitive athlete, find out what the science says about the benefits of stretching..</p>
-            </ion-item>
-        </ion-list>
+    <ion-content ng-controller="healthFitnessCtrl" ng-init="init()" class="has-header">
+        <h3>Welcome to Health & Fitness News</h3>
+        <div class= "list">
+            <a ng-repeat="item in nodes" class="item" ng-click="browse(item.node.link)">
+                <b>{{item.node.title}}</b><br>
+                <span ng-bind-html="item.node.summary"></span>
+            </a>
+        </div>
     </ion-content>
 </ion-view>

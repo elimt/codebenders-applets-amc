@@ -84,7 +84,7 @@ angular.module('starter', ['ionic','ui.router','starter.controllers', 'ngCordova
         })
         .state('healthFitness', {
             url: '/healthFitness',
-            cache: false,
+            cache: true,
             templateUrl: 'template/healthFitness.html',
             controller: 'healthFitnessCtrl'
         })
