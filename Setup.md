@@ -13,10 +13,10 @@ Note: Once downloaded, a couple of commands will need to be executed
   automatically opens your default browser and runs the app.
 
 5. ABC of github 
-  git status: to see what file has changed since your last commit 
-
-  git checkout insertbranchname : to switch to a branch
-  git pull: drag all updated files on branch/repo to your laptop
-  git push: send all your commits and code online
-  git fetch: gets metadata from github (
+  git status: to see what file has changed since your last commit <br>
+  git checkout insertbranchname : to switch to a branch <br>
+  git pull: get all new commits and files from the branch online to your computer<br>  
+  git push: send all new commits and files from your computer to the branch you are on<br>
+  git commit -m "insert what you did here": this is the ctrl+s of github you insert a message. after this, the git push sends it online<br>
+  git branch: shows you what branch you are on.<br> 
 
