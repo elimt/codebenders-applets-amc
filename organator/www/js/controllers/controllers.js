@@ -94,21 +94,20 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
 })
 .controller('healthFitnessCtrl', function($scope, $state, $http) {
     $scope.init =  function(){
-        $http({ 
-                method: "GET", 
-                url: "http://www.mark.ie/articles/feed/json"
-            }).then(function mySucces(data) {
+        $http.get("http://www.mark.ie/articles/feed/json")
+        .success(function(data) {
                     $scope.nodes = data.nodes;
                     $scope.browse = function (v) {
                         window.open(v, "_system", "location=yes");
                     };
                     window.localStorage["nodes"] = JSON.stringify(data.nodes);
-            }, function myError(data){
+        })
+        .error(function(data){
                     console.log("ERROR: " + data);
                     if(window.localStorage["nodes"] !== undefined) {
                         $scope.entries = JSON.parse(window.localStorage["nodes"]);
                     }
-            });
+        });
 
     };
 });
