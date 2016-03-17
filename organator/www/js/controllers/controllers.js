@@ -195,6 +195,8 @@ ref.onAuth(authDataCallback)
   ref.unauth();
   $state.go('home');
 	}
+	
+	
 	$scope.myGoBack = function() {
      $state.go('home');
   }
