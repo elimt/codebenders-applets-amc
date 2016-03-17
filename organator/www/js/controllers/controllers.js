@@ -59,25 +59,42 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
      $scope.myvalue = false;
         $scope.loginData = {};
 		$scope.init = function () {}
+		$scope.authen = false;
         $scope.new_user_clicked = function(){
             $state.go('donor_signup');
             
         }
+		
+		function authDataCallback(authData) {
+  if (authData) {
+	  $state.go('personalDetails');
+    console.log("User " + authData.uid + " is logged in with " + authData.provider);
+	
+  } else {
+    console.log("User is logged out");
+
+  }
+}
+
+  var ref = new Firebase("https://organator.firebaseio.com");
+ref.onAuth(authDataCallback)
          $scope.auth_true = function(){
  
   var ref = new Firebase("https://organator.firebaseio.com");
  
   ref.authWithPassword({
     email    : $scope.loginData.email,
-    password : $scope.loginData.password
+    password : $scope.loginData.password,
+	rememberMe: true
   }, function(error, authData) {
     if (error) {
       console.log("Login Failed!", error);
       $scope.loginData.errorMessage = 'Email or password is incorrect';
-       $scope.myvalue = true;
+       $scope.authen = false;
     } else {
       console.log("Authenticated successfully with payload:", authData);
             $state.go('personalDetails');
+			$scope.authen = true;
     }  }, {
   remember: "default"
 });
@@ -126,7 +143,7 @@ ref.authWithOAuthPopup("facebook", function(error, authData) {
         $scope.Model = {};
 		$scope.init = function () {}
      
-        $scope.signupEmail = function(email,  password){  
+        $scope.signupEmail = function(){  
  
   var ref = new Firebase("https://organator.firebaseio.com");
  
@@ -140,6 +157,8 @@ ref.authWithOAuthPopup("facebook", function(error, authData) {
     } else {
       console.log("Successfully created user account with uid:", userData.uid);
       $scope.myvalue = true;
+	  
+	  $state.go('personalDetails');
     }
   });
  
@@ -152,9 +171,33 @@ ref.authWithOAuthPopup("facebook", function(error, authData) {
 
 })
 .controller('personalDetailsCtrl', function($scope, $state) {
+			function authDataCallback(authData) {
+  if (authData) {
+	  $state.go('personalDetails');
+    console.log("User " + authData.uid + " is logged in with " + authData.provider);
+	
+  } else {
+    $state.go('donor');
+
+  }
+}
+
+  var ref = new Firebase("https://organator.firebaseio.com");
+ref.onAuth(authDataCallback)
+
     $scope.valid_persoDetails =  function(){
         $state.go('addressDetails');
     }
+	
+	$scope.logout = function() {
+		var ref = new Firebase("https://organator.firebaseio.com");
+ 
+  ref.unauth();
+  $state.go('home');
+	}
+	$scope.myGoBack = function() {
+     $state.go('home');
+  }
 })
 
 .controller('addressDetailsCtrl', function($scope, $state) {

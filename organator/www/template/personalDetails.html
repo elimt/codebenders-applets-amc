@@ -1,4 +1,8 @@
 <ion-view title="Personal Details">
+ <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button ng-click="myGoBack()">
+      </ion-nav-back-button>
+    </ion-nav-bar>
     <ion-content overflow-scroll="true" padding="true" scroll="false" class="has-header">
         <h3>Personal Details</h3>
         <form class="list" ng-submit="doLogin()" name="loginForm">
@@ -50,5 +54,14 @@
 			
         </form>
         <a ui-sref="addressDetails" class="button button-stable button-block  icon-right ion-android-arrow-forward" ng-disabled="loginForm.$invalid" ng-click="valid_persoDetails()">Next : Address Details</a>
-    </ion-content>
+		 
+		 </ion-content>
+		 <ion-footer-bar class="bar-stable center">
+		<div>
+		<button class="button button-clear button-positive title" ng-click="logout()">
+				Logout
+			</button>
+			</div>
+	</ion-footer-bar>
+    
 </ion-view>
