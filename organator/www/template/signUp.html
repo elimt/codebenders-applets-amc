@@ -6,23 +6,25 @@
         <h2 style="text-align:center;">Register as a Donor</h2>
         <form class="list">
             <ion-list>
-                <label class="item item-input">
+                <label class="item item-input" name="user">
                     <span class="input-label">Name</span>
-                    <input type="text" placeholder="" ng-model="name" ng-init="name=''">
+                    <input type="text" placeholder="" ng-model="Model.name" ng-init="name=''">
                 </label>
-                <label class="item item-input" name="Email Address">
+                <label class="item item-input" name="email">
                     <span class="input-label">Email Address</span>
-                    <input type="email" placeholder="" ng-model="email" ng-init="email=''">
+                    <input type="email" placeholder="" ng-model="Model.email" ng-init="email=''">
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Password</span>
-                    <input type="password" placeholder="" ng-model="password" ng-init="password=''">
+                    <input type="password" placeholder="" ng-model="Model.password" ng-init="password=''">
                 </label>
                 <label>
       						<ion-checkbox ng-model="isChecked">Terms and Conditions</ion-checkbox>
       					</label>
             </ion-list>
-            <button class="button button-positive button-block " ng-click="add_user()">Sign Up</button>
+            <button class="button button-positive button-block " ng-click="signupEmail()">Sign Up</button>
+            
+            <div ng-show="myvalue" style="text-align:center;">Signup Successful</div>
         </form>
     </ion-content>
 </ion-view>

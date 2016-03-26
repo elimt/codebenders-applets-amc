@@ -14,9 +14,6 @@ angular.module('starter', ['ionic','ui.router','starter.controllers', 'ngCordova
 		if (window.StatusBar) {
 			StatusBar.styleDefault();
 		}
-             
-        //db = $cordovaSQLite.openDB("my.db");
-        //$cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS people (id integer primary key, firstname text, lastname text)");
 	});
 })
 .config(function ($stateProvider, $urlRouterProvider) {
@@ -36,7 +33,12 @@ angular.module('starter', ['ionic','ui.router','starter.controllers', 'ngCordova
 	.state('donor', {
 			url: '/donor',
 			cache: false,
-			templateUrl: 'template/donor_login.html',
+			templateUrl: function(){
+                if(ionic.Platform.isAndroid()){
+                    return 'template/droid_donor_login.html';
+                }
+                return 'template/donor_login.html';
+            },
 			controller: 'donorCtrl'
 		})
 		// Each tab has its own nav history stack:

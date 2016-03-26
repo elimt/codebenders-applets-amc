@@ -1,4 +1,8 @@
 <ion-view title="Personal Details">
+ <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button ng-click="myGoBack()">
+      </ion-nav-back-button>
+    </ion-nav-bar>
     <ion-content overflow-scroll="true" padding="true" scroll="false" class="has-header">
         <h3>Personal Details</h3>
         <form class="list" ng-submit="doLogin()" name="loginForm">
@@ -6,41 +10,46 @@
                 <span class="input-label">Last Name</span>
              <input type="text" name="lastName" ng-model="loginData.lastName" ng-minlength="1" ng-maxlength="30" required>
         </label>        
-        <div ng-messages="loginForm.lastName.$error" ng-messages-include="templates/error-messages.html" 
+        <div ng-messages="loginForm.lastName.$error" 
         class="form-errors" ng-if="loginForm.lastName.$touched">
-          <div class="form-error" ng-message="required">Please enter your Last Name</div>
+            <div ng-messages-include="template/error-messages.html" ></div>
+<!--          <div class="form-error" ng-message="required">Please enter your Last Name</div>-->
         </div>
             <label class="item item-input" name="First Name">
                 <span class="input-label">First Name</span>
                  <input type="text" name="firstName" ng-model="loginData.firstName" ng-minlength="1" ng-maxlength="30" required>
         </label>        
-        <div ng-messages="loginForm.firstName.$error" ng-messages-include="templates/error-messages.html" 
+        <div ng-messages="loginForm.firstName.$error" 
         class="form-errors" ng-if="loginForm.firstName.$touched">
-          <div class="form-error" ng-message="required">Please enter your First Name</div>
+            <div ng-messages-include="template/error-messages.html"></div>
+<!--          <div class="form-error" ng-message="required">Please enter your First Name</div>-->
         </div>
             <label class="item item-input" name="Health Insurance Number">
                 <span class="input-label">Health Insurance Number</span>
                  <input type="text" name="healthInsuranceNumber" ng-model="loginData.healthInsuranceNumber" ng-minlength="1" ng-maxlength="30" required>
         </label>        
-        <div ng-messages="loginForm.healthInsuranceNumber.$error" ng-messages-include="templates/error-messages.html" 
+        <div ng-messages="loginForm.healthInsuranceNumber.$error" 
         class="form-errors" ng-if="loginForm.healthInsuranceNumber.$touched">
-          <div class="form-error" ng-message="required">Please enter your Health Insurance Number</div>
+            <div ng-messages-include="template/error-messages.html"></div>
+<!--          <div class="form-error" ng-message="required">Please enter your Health Insurance Number</div>-->
         </div>
             <label class="item item-input" name="Date of Birth">
                 <span class="input-label">Date of Birth</span>
                 <input type="date" name="dateOfBirth" ng-model="loginData.dateOfBirth"required>
         </label>        
-        <div ng-messages="loginForm.dateOfBirth.$error" ng-messages-include="templates/error-messages.html" 
+        <div ng-messages="loginForm.dateOfBirth.$error" 
         class="form-errors" ng-if="loginForm.dateOfBirth.$touched">
-          <div class="form-error" ng-message="required">Please enter your Date of Birth</div>
+<!--          <div class="form-error" ng-message="required">Please enter your Date of Birth</div>-->
+            <div ng-messages-include="template/error-messages.html" ></div>
         </div>
             <label class="item item-input" name="Blood Group">
                 <span class="input-label">Blood Group</span>
                  <input type="text" name="bloodGroup" ng-model="loginData.bloodGroup" ng-minlength="1" ng-maxlength="30" required>
         </label>        
-        <div ng-messages="loginForm.bloodGroup.$error" ng-messages-include="templates/error-messages.html" 
+        <div ng-messages="loginForm.bloodGroup.$error" 
         class="form-errors" ng-if="loginForm.bloodGroup.$touched">
-          <div class="form-error" ng-message="required">Please enter your Blood Group</div>
+<!--          <div class="form-error" ng-message="required">Please enter your Blood Group</div>-->
+            <div ng-messages-include="template/error-messages.html" ></div>
         </div>
             <h4>Sex</h4>
             <ion-radio name="Sex">
@@ -50,5 +59,14 @@
 			
         </form>
         <a ui-sref="addressDetails" class="button button-stable button-block  icon-right ion-android-arrow-forward" ng-disabled="loginForm.$invalid" ng-click="valid_persoDetails()">Next : Address Details</a>
-    </ion-content>
+		 
+		 </ion-content>
+		 <ion-footer-bar class="bar-stable center">
+		<div>
+		<button class="button button-clear button-positive title" ng-click="logout()">
+				Logout
+			</button>
+			</div>
+	</ion-footer-bar>
+    
 </ion-view>
