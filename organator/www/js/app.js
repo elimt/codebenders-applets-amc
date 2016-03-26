@@ -14,9 +14,6 @@ angular.module('starter', ['ionic','ui.router','starter.controllers', 'ngCordova
 		if (window.StatusBar) {
 			StatusBar.styleDefault();
 		}
-             
-        //db = $cordovaSQLite.openDB("my.db");
-        //$cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS people (id integer primary key, firstname text, lastname text)");
 	});
 })
 .config(function ($stateProvider, $urlRouterProvider) {
