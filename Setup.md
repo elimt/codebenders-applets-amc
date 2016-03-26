@@ -20,3 +20,4 @@ Note: Once downloaded, a couple of commands will need to be executed
   git commit -m "insert what you did here": this is the ctrl+s of github you insert a message. after this, the git push sends it online<br>
   git branch: shows you what branch you are on.<br> 
 
+
