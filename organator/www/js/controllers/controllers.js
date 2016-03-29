@@ -1,3 +1,9 @@
+/*state.go leads to the next template/html page
+ *every page has 1 controller
+ * state.go(x) is an inbuilt function that takes us to html page x
+ */
+
+
 angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'firebase', 'ngMessages'])
     .factory("Users", function($firebaseArray){
         var itemsRef = new Firebase("https://organator.firebaseio.com/");
