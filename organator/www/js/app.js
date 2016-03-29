@@ -1,6 +1,3 @@
-//declare database to be open
-var db = null;
-
 angular.module('starter', ['ionic','ui.router','starter.controllers', 'ngCordova', 'firebase', 'ngMessages'])
 
 .run(function ($ionicPlatform, $cordovaSQLite) {
@@ -14,11 +11,9 @@ angular.module('starter', ['ionic','ui.router','starter.controllers', 'ngCordova
 		if (window.StatusBar) {
 			StatusBar.styleDefault();
 		}
-             
-        //db = $cordovaSQLite.openDB("my.db");
-        //$cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS people (id integer primary key, firstname text, lastname text)");
 	});
 })
+
 .config(function ($stateProvider, $urlRouterProvider) {
     
 	$stateProvider
@@ -38,56 +33,55 @@ angular.module('starter', ['ionic','ui.router','starter.controllers', 'ngCordova
 			cache: false,
 			templateUrl: 'template/donor_login.html',
 			controller: 'donorCtrl'
-		})
-		// Each tab has its own nav history stack:
-		.state('whyToDonate', {
+	})
+	.state('whyToDonate', {
 			url: '/whyToDonate',
 			cache: false,
 			templateUrl: 'template/why_to_donate.html',
 			controller: 'whyToDonateCtrl'
-		})
-        .state('hospital_home', {
+	})
+    .state('hospital_home', {
             url: '/hospital_home', 
             cache: false, 
             templateUrl: 'template/hospital_home.html',
             controller: 'hospitalHomeCtrl'
-        })
-        .state('donor_signup', {
+    })
+    .state('donor_signup', {
             url: '/donor_signup', 
             cache: false, 
             templateUrl: 'template/signUp.html',
             controller: 'donorsignupCtrl'
-        })
-        .state('personalDetails', {
+    })
+    .state('personalDetails', {
             url: '/personalDetails',
             cache: false,
             templateUrl: 'template/personalDetails.html',
             controller: 'personalDetailsCtrl'
-        })
-        .state('addressDetails', {
+    })
+    .state('addressDetails', {
             url: '/addressDetails',
             cache: false,
             templateUrl: 'template/addressDetails.html',
             controller: 'addressDetailsCtrl'
-        })
-        .state('organsDetails', {
+    })
+    .state('organsDetails', {
             url: '/organsDetails',
             cache: false,
             templateUrl: 'template/organsDetails.html',
             controller: 'organsDetailsCtrl'
-        })
-        .state('confirmPage', {
+    })
+    .state('confirmPage', {
             url: '/confirmPage',
             cache: false,
             templateUrl: 'template/confirmPage.html',
             controller: 'confirmPageCtrl'
-        })
-        .state('healthFitness', {
+    })
+    .state('healthFitness', {
             url: '/healthFitness',
             cache: false,
             templateUrl: 'template/healthFitness.html',
             controller: 'healthFitnessCtrl'
-        })
-	   $urlRouterProvider.otherwise('/home');
+    });
+	$urlRouterProvider.otherwise('/home');
 
 });

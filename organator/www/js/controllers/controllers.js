@@ -22,9 +22,7 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
             $state.go('whyToDonate');
         }
     })
-
-
-.controller('hospitalCtrl', function ($scope, $state) {
+    .controller('hospitalCtrl', function ($scope, $state) {
 
 		$scope.init = function () {}
         $scope.hospital_login_clicked = function(){
@@ -32,9 +30,7 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
         }
 
 	})
-
-
-.controller('donorCtrl', function ($scope, $state) {
+    .controller('donorCtrl', function ($scope, $state) {
 		$scope.init = function () {}
         $scope.new_user_clicked = function(){
             $state.go('donor_signup');
@@ -43,12 +39,12 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
             $state.go('personalDetails');
         }
          
-})
-.controller('hospitalHomeCtrl', function($scope, $cordovaSQLite, Users){
-    $scope.init = function(){}
-    $scope.listOfDonors = Users;
-})
-.controller('donorsignupCtrl', function ($scope, $state, Users) {
+    })
+    .controller('hospitalHomeCtrl', function($scope, $cordovaSQLite, Users){
+        $scope.init = function(){}
+        $scope.listOfDonors = Users;
+    })
+    .controller('donorsignupCtrl', function ($scope, $state, Users) {
         $scope.users = Users;
 		$scope.init = function () {}
         $scope.auth_true = function (){
@@ -61,39 +57,37 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
                 "password": 'password'
             });
         }
-})
+    })
 
 
-.controller('whyToDonateCtrl', function ($scope) {
+    .controller('whyToDonateCtrl', function ($scope) {
 		$scope.init = function () {}
 
-})
-.controller('personalDetailsCtrl', function($scope, $state) {
-    $scope.valid_persoDetails =  function(){
-        $state.go('addressDetails');
-    }
-})
+    })
+    .controller('personalDetailsCtrl', function($scope, $state) {
+        $scope.valid_persoDetails =  function(){
+            $state.go('addressDetails');
+        }
+    })
 
-.controller('addressDetailsCtrl', function($scope, $state) {
-    $scope.valid_addressDetails = function(){
-        $state.go('organsDetails');
-    }
-})
+    .controller('addressDetailsCtrl', function($scope, $state) {
+        $scope.valid_addressDetails = function(){
+            $state.go('organsDetails');
+        }
+    })
 
-.controller('organsDetailsCtrl', function($scope, $state) {
-    $scope.valid_organsDetails =  function(){
-        $state.go('confirmPage');
-    }
-})
+    .controller('organsDetailsCtrl', function($scope, $state) {
+        $scope.valid_organsDetails =  function(){
+            $state.go('confirmPage');
+        }
+    })
+    .controller('confirmPageCtrl', function($scope, $state) {
+        $scope.valid_confirmation =  function(){
+            $state.go('healthFitness');
+        }
+    })
+    .controller('healthFitnessCtrl', function($scope, $state) {
+        $scope.init =  function(){
 
-
-.controller('confirmPageCtrl', function($scope, $state) {
-    $scope.valid_confirmation =  function(){
-        $state.go('healthFitness');
-    }
-})
-.controller('healthFitnessCtrl', function($scope, $state) {
-    $scope.init =  function(){
-
-    }
-});
+        }
+    });
