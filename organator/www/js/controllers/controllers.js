@@ -94,18 +94,18 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
 })
 .controller('healthFitnessCtrl', function($scope, $state, $http) {
     $scope.init =  function(){
-        $http.get("http://www.mark.ie/articles/feed/json")
+        $http.get("http://api.nytimes.com/svc/topstories/v1/health.json?api-key=edd889e33c2d3cefec9bb6685bbb88c1:15:74876874")
         .success(function(data) {
-                    $scope.nodes = data.nodes;
+                    $scope.results = data.results;
                     $scope.browse = function (v) {
                         window.open(v, "_system", "location=yes");
                     };
-                    window.localStorage["nodes"] = JSON.stringify(data.nodes);
+                    window.localStorage["results"] = JSON.stringify(data.results, ['title', 'abstract', 'url', 'byline']);
         })
         .error(function(data){
                     console.log("ERROR: " + data);
-                    if(window.localStorage["nodes"] !== undefined) {
-                        $scope.entries = JSON.parse(window.localStorage["nodes"]);
+                    if(window.localStorage["results"] !== undefined) {
+                        $scope.entries = JSON.parse(window.localStorage["results"]);
                     }
         });
 

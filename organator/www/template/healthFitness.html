@@ -2,9 +2,9 @@
     <ion-content ng-controller="healthFitnessCtrl" ng-init="init()" class="has-header">
         <h3>Welcome to Health & Fitness News</h3>
         <div class= "list">
-            <a ng-repeat="item in nodes" class="item" ng-click="browse(item.node.link)">
-                <b>{{item.node.title}}</b><br>
-                <span ng-bind-html="item.node.summary"></span>
+            <a ng-repeat="item in results" class="item" ng-click="browse(item.url)">
+                <b>{{item.title}}</b><br>
+                <span ng-bind-html="item.abstract"></span>
             </a>
         </div>
     </ion-content>
