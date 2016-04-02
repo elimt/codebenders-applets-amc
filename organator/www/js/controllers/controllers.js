@@ -76,6 +76,8 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
   }
 }
 
+
+
   var ref = new Firebase("https://organator.firebaseio.com");
 ref.onAuth(authDataCallback)
          $scope.auth_true = function(){
@@ -163,6 +165,7 @@ ref.authWithOAuthPopup("facebook", function(error, authData) {
   });
  
 };
+
 })
 
 
@@ -171,6 +174,7 @@ ref.authWithOAuthPopup("facebook", function(error, authData) {
 
 })
 .controller('personalDetailsCtrl', function($scope, $state) {
+			
 			function authDataCallback(authData) {
   if (authData) {
 	  $state.go('personalDetails');
@@ -179,8 +183,33 @@ ref.authWithOAuthPopup("facebook", function(error, authData) {
   } else {
     $state.go('donor');
 
+  
   }
-}
+			}
+  
+  $scope.enterData =  function(lastName, firstName, healthInsuranceNumber, dateOfBirth, bloodGroup, sex){  
+  var lastName, firstName, healthInsuranceNumber, dateOfBirth, bloodGroup, sex;
+  this.lastName = lastName;
+  this.firstName = firstName;
+  this.healthInsuranceNumber = healthInsuranceNumber;
+  this.dateOfBirth = dateOfBirth;
+  this.bloodGroup = bloodGroup;
+  this.sex = sex;
+  
+  var ref2 = new Firebase("https://organator.firebaseio.com/users");
+	var userID = ref2.getAuth().uid;
+	
+var usersRef = ref2.child("personalDetails").child(userID);
+usersRef.set({
+	firstName: firstName,
+    lastName: lastName,
+    healthInsuranceNumber: healthInsuranceNumber,
+	dateOfBirth: dateOfBirth.toString(),
+	bloodGroup: bloodGroup,
+	sex: sex
+});
+};
+
 
   var ref = new Firebase("https://organator.firebaseio.com");
 ref.onAuth(authDataCallback)
@@ -206,12 +235,64 @@ ref.onAuth(authDataCallback)
     $scope.valid_addressDetails = function(){
         $state.go('organsDetails');
     }
+	
+	  $scope.enterData =  function(houseNumber, streetNumber, city, stateProvince, country, postalCode, phoneNumber){  
+  var houseNumber, streetNumber, city, stateProvince, country, postalCode, phoneNumber;
+  this.houseNumber = houseNumber;
+  this.streetNumber = streetNumber;
+  this.city = city;
+  this.stateProvince = stateProvince;
+  this.country = country;
+  this.postalCode = postalCode;
+  this.phoneNumber = phoneNumber;
+  
+  var ref2 = new Firebase("https://organator.firebaseio.com/users");
+	var userID = ref2.getAuth().uid;
+	
+var usersRef = ref2.child("addressDetails").child(userID);
+usersRef.set({
+	houseNumber: houseNumber,
+    streetNumber: streetNumber,
+    city: city,
+	stateProvince: stateProvince,
+	country: country,
+	postalCode:postalCode,
+	phoneNumber:phoneNumber
+});
+};
 })
 
 .controller('organsDetailsCtrl', function($scope, $state) {
     $scope.valid_organsDetails =  function(){
         $state.go('confirmPage');
     }
+	
+		  $scope.enterData =  function(kidney, heart, eyes, bones, liver, lungs, skin, pancreas){  
+  var kidney, heart, eyes, bones, liver, lungs, skin, pancreas;
+  this.kidney = kidney;
+  this.heart = heart;
+  this.eyes = eyes;
+  this.bones = bones;
+  this.liver = liver;
+  this.lungs = lungs;
+  this.skin = skin;
+  this.pancreas = pancreas;
+  
+  var ref2 = new Firebase("https://organator.firebaseio.com/users");
+	var userID = ref2.getAuth().uid;
+	
+var usersRef = ref2.child("organDetails").child(userID);
+usersRef.set({
+	kidney: kidney,
+    heart: heart,
+    eyes: eyes,
+	bones: bones,
+	liver: liver,
+	lungs:lungs,
+	skin:skin,
+	pancreas:pancreas
+});
+};
 })
 
 

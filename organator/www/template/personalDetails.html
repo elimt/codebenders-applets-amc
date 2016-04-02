@@ -52,13 +52,12 @@
             <div ng-messages-include="template/error-messages.html" ></div>
         </div>
             <h4>Sex</h4>
-            <ion-radio name="Sex">
-			<span>Male</span>
-			</ion-radio>
-            <ion-radio name="Sex">Female</ion-radio>
+            <ion-radio name="Sex" ng-model="login.sex" value="male">Male</ion-radio>
+            <ion-radio name="Sex" ng-model="login.sex" value="female">Female</ion-radio>
 			
         </form>
-        <a ui-sref="addressDetails" class="button button-stable button-block  icon-right ion-android-arrow-forward" ng-disabled="loginForm.$invalid" ng-click="valid_persoDetails()">Next : Address Details</a>
+        <a ui-sref="addressDetails" class="button button-stable button-block  icon-right ion-android-arrow-forward" 
+		ng-disabled="loginForm.$invalid" ng-click="valid_persoDetails(); enterData(loginData.lastName, loginData.firstName, loginData.healthInsuranceNumber, loginData.dateOfBirth, loginData.bloodGroup, login.sex)">Next : Address Details</a>
 		 
 		 </ion-content>
 		 <ion-footer-bar class="bar-stable center">

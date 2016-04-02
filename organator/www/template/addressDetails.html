@@ -70,7 +70,8 @@
             <div ng-messages-include="template/error-messages.html" ></div>
         </div>
         </form>
-        <a ui-sref="organsDetails" class="button button-stable button-block  icon-right ion-android-arrow-forward" ng-disabled="loginForm.$invalid">Next : Organs Details</a>
+        <a ui-sref="organsDetails" class="button button-stable button-block  icon-right ion-android-arrow-forward" 
+		ng-disabled="loginForm.$invalid" ng-click="enterData(loginData.houseNumber, loginData.streetNumber, loginData.city, loginData.stateProvince, loginData.country, loginData.postalCode, loginData.phoneNumber)">Next : Organs Details</a>
         <a ui-sref="personalDetails" class="button button-stable button-block  icon-left ion-android-arrow-back">Back : Personal Details</a>
     </ion-content>
 </ion-view>

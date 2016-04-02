@@ -5,16 +5,17 @@
             <p>Select one or more than one organs.</p>
         </div>
         <ion-list>
-            <ion-checkbox name="Kidneys">Kidneys</ion-checkbox>
-            <ion-checkbox name="Heart">Heart</ion-checkbox>
-            <ion-checkbox name="Eyes">Eyes</ion-checkbox>
-            <ion-checkbox name="Bones">Bones</ion-checkbox>
-            <ion-checkbox name="Liver">Liver</ion-checkbox>
-            <ion-checkbox name="Lungs">Lungs</ion-checkbox>
-            <ion-checkbox name="Skin">Skin</ion-checkbox>
-            <ion-checkbox name="Pancreas">Pancreas</ion-checkbox>
+            <ion-checkbox name="Kidneys" ng-init="organ.kidney = organ.kidney || 'null'" ng-model="organ.kidney">Kidneys</ion-checkbox>
+            <ion-checkbox name="Heart"  ng-init="organ.heart = organ.heart || 'null'" ng-model="organ.heart"  ng-if="!checked">Heart</ion-checkbox>
+            <ion-checkbox name="Eyes"   ng-init="organ.eyes = organ.eyes || 'null'" ng-model="organ.eyes"  ng-if="!checked">Eyes</ion-checkbox>
+            <ion-checkbox name="Bones"  ng-init="organ.bones = organ.bones || 'null'" ng-model="organ.bones"  ng-if="!checked">Bones</ion-checkbox>
+            <ion-checkbox name="Liver"  ng-init="organ.liver = organ.liver || 'null'" ng-model="organ.liver">Liver</ion-checkbox>
+            <ion-checkbox name="Lungs"  ng-init="organ.lungs = organ.lungs || 'null'" ng-model="organ.lungs">Lungs</ion-checkbox>
+            <ion-checkbox name="Skin"   ng-init="organ.skin = organ.skin || 'null'" ng-model="organ.skin">Skin</ion-checkbox>
+            <ion-checkbox name="Pancreas" ng-init="organ.pancreas = organ.pancreas || 'null'" ng-model="organ.pancreas">Pancreas</ion-checkbox>
         </ion-list>
-        <a ui-sref="confirmPage" class="button button-stable button-block  icon-right ion-android-arrow-forward" ng-click="valid_organsDetails()">Next: Confirm Page</a>
+        <a ui-sref="confirmPage" class="button button-stable button-block  icon-right ion-android-arrow-forward" 
+		ng-click="valid_organsDetails(); enterData(organ.kidney, organ.heart, organ.eyes, organ.bones, organ.liver, organ.lungs, organ.skin, organ.pancreas)">Next: Confirm Page</a>
         <a ui-sref="addressDetails" class="button button-stable button-block  icon-left ion-android-arrow-back">Back : Address Details</a>
     </ion-content>
 </ion-view>
