@@ -9,54 +9,53 @@
 
             <label class="item item-input" name="Last Name"><!--Both item-input and item is then used to designate each individual input field and it's associated label. Ionic prefers to create the item-input out of the <label> element so that when any part of the row is tapped then the underlying input receives focus. -->
                 <span class="input-label">Last Name</span><!--Last Name displayed in input field-->
-             <input type="text" name="lastName" ng-model="loginData.lastName" ng-minlength="1" ng-maxlength="30" required><!--name is the variable used to store the value entered by the user; ng-model is an angular js expression used to bind the data entered; minlength Sets minlength validation error key if the value is shorter than minlength;required Sets required validation error key if the value is not entered.-->
-        </label>    
-
-        <div ng-messages="loginForm.lastName.$error" 
-        class="form-errors" ng-if="loginForm.lastName.$touched" 
-        ><!--ng-messages is an angular expression evaluating to a key/value object (this is typically the $error object on an ngModel instance); ng-if executes the code inside the <div></div> if the field has been touched; form-errors is a css class-->
-            <div ng-messages-include="template/error-messages.html" ></div><!--error-messages.html determines the error message to be printed-->
-        </div>
+                <input type="text" name="lastName" ng-model="loginData.lastName" placeholder="Wood" ng-minlength="1" ng-maxlength="30" ng-pattern="/^([A-Z]|[a-z]|\s)*$/" required><!--name is the variable used to store the value entered by the user; ng-model is an angular js expression used to bind the data entered; minlength Sets minlength validation error key if the value is shorter than minlength;required Sets required validation error key if the value is not entered.-->
+            </label>    
+            <div ng-messages="loginForm.lastName.$error" 
+            class="form-errors" ng-if="loginForm.lastName.$touched" 
+            ><!--ng-messages is an angular expression evaluating to a key/value object (this is typically the $error object on an ngModel instance);ng-if executes the code inside the <div></div> if the field has been touched; form-errors is a css class-->
+                <div ng-messages-include="template/error-messages.html" ></div><!--error-messages.html determines the error message to be printed-->
+                <div class="form-error" ng-message="pattern">No digits or symbols allowed</div> <!--too specific to be included in error-messages.html-->
+            </div>
 
 
 
             <label class="item item-input" name="First Name">
                 <span class="input-label">First Name</span>
-                 <input type="text" name="firstName" ng-model="loginData.firstName" ng-minlength="1" ng-maxlength="30" required>
-        </label>        
-        <div ng-messages="loginForm.firstName.$error" 
-        class="form-errors" ng-if="loginForm.firstName.$touched">
-            <div ng-messages-include="template/error-messages.html"></div>
-        </div>
-
+                <input type="text" name="firstName" ng-model="loginData.firstName" placeholder="James" ng-minlength="1" ng-maxlength="30" ng-pattern="/^([A-Z]|[a-z]|\s)*$/" required>
+            </label>        
+            <div ng-messages="loginForm.firstName.$error" 
+            class="form-errors" ng-if="loginForm.firstName.$touched">
+                <div ng-messages-include="template/error-messages.html"></div>
+                <div class="form-error" ng-message="pattern">No digits or symbols allowed</div> <!--too specific to be included in error-messages.html-->
+            </div>
 
 
 
             <label class="item item-input" name="Health Insurance Number">
                 <span class="input-label">Health Insurance Number</span>
-                 <input type="text" name="healthInsuranceNumber" ng-model="loginData.healthInsuranceNumber" ng-pattern="/^[0-9]{8,10}$/" required > <!--health insurane number is between 8 and 10 digits depending on the province-->
-        </label>
-        <div ng-messages="loginForm.healthInsuranceNumber.$error" 
-        class="form-errors" ng-if="loginForm.healthInsuranceNumber.$touched">
-            <div ng-messages-include="template/error-messages.html"></div>
-            <div class="form-error" ng-message="pattern">Please enter a valid Health Insurance Number</div> <!--too specific to be included in error-messages.html-->
-        </div>
+                <input type="text" name="healthInsuranceNumber" ng-model="loginData.healthInsuranceNumber" placeholder="7846834534" ng-pattern="/^[\d]{8,10}$/" required > <!--only allow entry of digits; health insurane number is between 8 and 10 digits depending on the province-->
+            </label>
+            <div ng-messages="loginForm.healthInsuranceNumber.$error" 
+            class="form-errors" ng-if="loginForm.healthInsuranceNumber.$touched">
+                <div ng-messages-include="template/error-messages.html"></div>
+                <div class="form-error" ng-message="pattern">Please enter a valid Health Insurance Number</div> <!--too specific to be included in error-messages.html-->
+            </div>
 
 
 
             <label class="item item-input" name="Date of Birth">
                 <span class="input-label">Date of Birth</span>
-                <input type="date" name="dateOfBirth" ng-model="loginData.dateOfBirth" required>
-        </label>        
-        <div ng-messages="loginForm.dateOfBirth.$error" 
-        class="form-errors" ng-if="loginForm.dateOfBirth.$touched">
-            <div ng-messages-include="template/error-messages.html" ></div>
-        </div>
+                <input type="date" name="dateOfBirth" ng-model="loginData.dateOfBirth" placeholder="1989-04-13" required>
+            </label>        
+            <div ng-messages="loginForm.dateOfBirth.$error" 
+            class="form-errors" ng-if="loginForm.dateOfBirth.$touched">
+                <div ng-messages-include="template/error-messages.html" ></div>
+            </div>
 
 
 
-
-        <label class="item item-input item-select" name="Blood Group">
+            <label class="item item-input item-select" name="Blood Group">
                 <span class="input-label">Blood Group</span>
                 <select name="bloodGroup" ng-model="loginData.bloodGroup" required>
                     <option value="">---Please select---</option>
@@ -65,31 +64,35 @@
                     <option>AB</option>
                     <option>O</option>
                 </select>
-        </label>        
-        <div ng-messages="loginForm.bloodGroup.$error" 
-        class="form-errors" ng-if="loginForm.bloodGroup.$touched">
-            <div ng-messages-include="template/error-messages.html" ></div>
-        </div>
+            </label>        
+            <div ng-messages="loginForm.bloodGroup.$error" 
+            class="form-errors" ng-if="loginForm.bloodGroup.$touched">
+                <div ng-messages-include="template/error-messages.html" ></div>
+            </div>
 
 
-        <span class="input-label">Sex</span>
-        <!--ion-list ng-model="loginData.sex" required-->
-            <ion-radio name="Sex"><span>Male</span></ion-radio>
-            <ion-radio name="Sex">Female</ion-radio>
-        <!--/ion-list-->
+            <label class="item item-input item-select" name="Sex">
+                <span class="input-label">Sex</span>
+                <select name="sex" ng-model="loginData.sex" required>
+                    <option value="">---Please select---</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </label>        
+            <div ng-messages="loginForm.sex.$error" 
+            class="form-errors" ng-if="loginForm.sex.$touched">
+                <div ng-messages-include="template/error-messages.html" ></div>
+            </div>
        
         
 
         </form>
-        <a ui-sref="addressDetails" class="button button-stable button-block  icon-right ion-android-arrow-forward" ng-disabled="loginForm.$invalid" ng-click="valid_persoDetails()">Next : Address Details</a>
+        <a ui-sref="addressDetails" class="button button-stable button-block  icon-right ion-android-arrow-forward" ng-disabled="loginForm.$invalid" ng-click="valid_persoDetails()">Next : Address Details</a> <!--class defines what the button looks like; valid_persoDetails() defined inside the personalDetailsCtrl-->
 		 
-		 </ion-content>
-		 <ion-footer-bar class="bar-stable center">
+	</ion-content>
+	<ion-footer-bar class="bar-stable center">
 		<div>
-		<button class="button button-clear button-positive title" ng-click="logout()">
-				Logout
-			</button>
-			</div>
-	</ion-footer-bar>
-    
+		    <button class="button button-clear button-positive title" ng-click="logout()">Logout</button>
+		</div>
+	</ion-footer-bar>  
 </ion-view>

@@ -1,76 +1,110 @@
 <ion-view title="Address Details">
     <ion-content overflow-scroll="true" padding="true" scroll="false" class="has-header">
         <form class="list" ng-submit="doLogin()" name="loginForm">
-            <label class="item item-input" name="Address-1">
-                <span class="input-label">House/Apartment Number</span>
-                 <input type="text" name="houseNumber" ng-model="loginData.houseNumber" ng-minlength="1" ng-maxlength="30" required>
-        </label>        
-        <div ng-messages="loginForm.houseNumber.$error" class="form-errors" ng-if="loginForm.houseNumber.$touched">
-            <div ng-messages-include="template/error-messages.html" ></div>
-<!--          <div class="form-error" ng-message="required">Please enter your House/Apartment Number</div>-->
-        </div>
-		
-            <label class="item item-input" name="Address-2">
-                <span class="input-label">Street Number</span>
-               <input type="text" name="streetNumber" ng-model="loginData.streetNumber" ng-minlength="1" ng-maxlength="30" required>
-        </label>        
-        <div ng-messages="loginForm.streetNumber.$error" 
-        class="form-errors" ng-if="loginForm.streetNumber.$touched">
-<!--          <div class="form-error" ng-message="required">Please enter your Street Number</div>-->
-            <div ng-messages-include="template/error-messages.html" ></div>
-        </div>
-		
-            <label class="item item-input" name="City">
-                <span class="input-label">City</span>
-                 <input type="text" name="city" ng-model="loginData.city" ng-minlength="1" ng-maxlength="30" required>
-        </label>        
-        <div ng-messages="loginForm.city.$error"  
-        class="form-errors" ng-if="loginForm.city.$touched">
-            <div ng-messages-include="template/error-messages.html"></div>
-<!--          <div class="form-error" ng-message="required">Please enter your City</div>-->
-        </div>
-		
-            <label class="item item-input">
-                <span class="input-label">State/Proviance</span>
-                <input type="text" name="stateProvince" ng-model="loginData.stateProvince" ng-minlength="1" ng-maxlength="30" required>
-        </label>        
-        <div ng-messages="loginForm.stateProvince.$error" 
-        class="form-errors" ng-if="loginForm.stateProvince.$touched">
-<!--          <div class="form-error" ng-message="required">Please enter your State/Proviance</div>-->
-            <div ng-messages-include="template/error-messages.html" ></div>
-        </div>
-		
-            <label class="item item-input">
+            <!--only country, state, city and phone number are compulsory fields-->
+
+
+             <label class="item item-input item-select" name="Country"><!--item-select adds additional styling to select form-->
                 <span class="input-label">Country</span>
-               <input type="text" name="country" ng-model="loginData.country" ng-minlength="1" ng-maxlength="30" required>
-        </label>        
-        <div ng-messages="loginForm.country.$error" 
-        class="form-errors" ng-if="loginForm.country.$touched">
-<!--          <div class="form-error" ng-message="required">Please enter your Country</div>-->
-            <div ng-messages-include="template/error-messages.html" ></div>
-        </div>
+                <select name="country" ng-model="loginData.country" ng-change="setSelectValue(loginData.country)" required> <!--setting the selected country to determine the states/provinces to display.-->
+                    <option value="">---Please select---</option>
+                    <option ng-repeat="country in Countries"  value="{{country.name}}">{{country.name}} 
+                         </option>
+                </select>
+            </label>        
+            <div ng-messages="loginForm.country.$error" 
+            class="form-errors" ng-if="loginForm.country.$touched">
+                <div ng-messages-include="template/error-messages.html" ></div>
+            </div>
+
+
+             <label class="item item-input item-select" name="ProvinceState">
+                <span class="input-label">Province/State</span>
+                <div ng-if="country === 'US'"> 
+                    <select name="provinceState" ng-model="loginData.provinceState" required>
+                            <option value="">---Please select---</option>
+                            <option ng-repeat="state in States"  value="{{state.name}}">{{state.name}}</option>
+                    </select>
+                </div>
+                <div ng-if="country === 'Canada'"> 
+                    <select name="provinceState" ng-model="loginData.provinceState" required>
+                            <option value="">---Please select---</option>
+                            <option ng-repeat="province in Provinces"  value="{{province.name}}">{{province.name}}</option>
+                    </select>
+                </div>
+            </label>          
+            <div ng-messages="loginForm.provinceState.$error" 
+            class="form-errors" ng-if="loginForm.stateProvince.$touched">
+                <div ng-messages-include="template/error-messages.html" ></div>
+            </div>
+
+
+            <label class="item item-input" name="HouseNumber">
+                <span class="input-label">House/Apartment Number</span>
+                <input type="text" name="houseNumber" ng-model="loginData.houseNumber"  placeholder="3501" ng-pattern="/^[\d]*$/"> <!--allow only digits to be typed; not restricting the number of digits-->
+            </label>        
+            <div ng-messages="loginForm.houseNumber.$error" 
+            class="form-errors" ng-if="loginForm.houseNumber.$touched">
+            <div class="form-error" ng-message="pattern">Please enter a valid house Number</div> <!--too specific to be included in error-messages.html-->
+            </div>
 		
-            <label class="item item-input" name="Postal Code">
-                <span class="input-label">Postal Code</span>
-                <input type="text" name="postalCode" ng-model="loginData.postalCode" ng-minlength="1" ng-maxlength="30" required>
-        </label>        
-        <div ng-messages="loginForm.postalCode.$error"
-        class="form-errors" ng-if="loginForm.postalCode.$touched">
-            <div  ng-messages-include="template/error-messages.html" ></div>
-<!--          <div class="form-error" ng-message="required">Please enter your Postal Code</div>-->
-        </div>
+
+
+            <label class="item item-input" name="StreetName">
+                <span class="input-label">Street Name</span>
+                <input type="text" name="streetName" ng-model="loginData.streetName" placeholder="200 Bank Street" ng-minlength="1" ng-maxlength="30">
+            </label>        
+            <div ng-messages="loginForm.streetName.$error" 
+            class="form-errors" ng-if="loginForm.streetName.$touched">
+                <div ng-messages-include="template/error-messages.html" ></div>
+            </div>
 		
-            <label class="item item-input" name="Phone number">
+            <div class="row">
+                <div class="col">
+                    <label class="item item-input" name="City">
+                        <span class="input-label">City</span>
+                        <input type="text" name="city" ng-model="loginData.city" placeholder="Ottawa" ng-minlength="1" ng-maxlength="30" ng-pattern="/^([A-Z]|[a-z]|\s)*$/" required>
+                    </label>        
+                    <div ng-messages="loginForm.city.$error"  
+                    class="form-errors" ng-if="loginForm.city.$touched">
+                        <div ng-messages-include="template/error-messages.html"></div>
+                        <div class="form-error" ng-message="pattern">No digits or symbols allowed</div> <!--too specific to be included in error-messages.html-->
+                    </div>
+	           </div>
+		
+
+                <div class="col">
+                    <label class="item item-input" name="PostalCode">
+                        <span class="input-label">Postal Code</span>
+                        <div ng-if="country === 'US'">
+                            <input type="text" name="postalCode" ng-model="loginData.postalCode" placeholder="67453" ng-pattern="/^[0-9]{5}$/"> <!--assuming we are in canada-->
+                        </div>
+                        <div ng-if="country === 'Canada'">
+                            <input type="text" name="postalCode" ng-model="loginData.postalCode" placeholder="K2K6J2" ng-pattern="/^([A-Z]|[a-z]|[0-9]){6}$/"> <!--assuming we are in canada-->
+                        </div>
+                    </label>        
+                    <div ng-messages="loginForm.postalCode.$error"
+                    class="form-errors" ng-if="loginForm.postalCode.$touched">
+                        <div class="form-error" ng-message="pattern">Please enter a valid postal/zip code</div> <!--too specific to be included in error-messages.html-->
+                    </div>
+	           </div>
+            </div>	
+
+
+            <label class="item item-input" name="PhoneNumber">
                 <span class="input-label">Phone number</span>
-                <input type="text" name="phoneNumber" ng-model="loginData.phoneNumber" ng-minlength="1" ng-maxlength="30" required>
-        </label>        
-        <div ng-messages="loginForm.phoneNumber.$error" 
-        class="form-errors" ng-if="loginForm.phoneNumber.$touched">
-<!--          <div class="form-error" ng-message="required">Please enter your Postal Code</div>-->
-            <div ng-messages-include="template/error-messages.html" ></div>
-        </div>
+                <input type="text" name="phoneNumber" ng-model="loginData.phoneNumber" placeholder="5143228954" ng-pattern="/^[0-9]{10}$/" required> <!--assuming we are in canada-->
+            </label>        
+            <div ng-messages="loginForm.phoneNumber.$error" 
+            class="form-errors" ng-if="loginForm.phoneNumber.$touched">
+                <div ng-messages-include="template/error-messages.html" ></div>
+                <div class="form-error" ng-message="pattern">Please enter a valid phone number</div> <!--too specific to be included in error-messages.html-->
+            </div>
+
+
+
         </form>
-        <a ui-sref="organsDetails" class="button button-stable button-block  icon-right ion-android-arrow-forward" ng-disabled="loginForm.$invalid">Next : Organs Details</a>
-        <a ui-sref="personalDetails" class="button button-stable button-block  icon-left ion-android-arrow-back">Back : Personal Details</a>
+        <a ui-sref="organsDetails" class="button button-stable button-block  icon-right ion-android-arrow-forward" ng-disabled="loginForm.$invalid">Next : Organs Details</a><!--WHERE IS NG-CLICK-->
+        <a ui-sref="personalDetails" class="button button-stable button-block  icon-left ion-android-arrow-back">Back : Personal Details</a><!--WHERE IS NG-CLICK-->
     </ion-content>
 </ion-view>
