@@ -7,24 +7,24 @@
         <form class="list">
             <ion-list>
                 <label class="item item-input" name="user">
-                    <span class="input-label">Name</span>
-                    <input type="text" placeholder="" ng-model="Model.name" ng-init="name=''">
+                    <span class="input-label">Email Address</span>
+                    <input type="email" ng-model="signup.email" required>
                 </label>
                 <label class="item item-input" name="email">
-                    <span class="input-label">Email Address</span>
-                    <input type="email" placeholder="" ng-model="Model.email" ng-init="email=''">
+                    <span class="input-label">Confirm Email Address</span>
+                    <input type="email" ng-model="signup.email2" required>
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Password</span>
-                    <input type="password" placeholder="" ng-model="Model.password" ng-init="password=''">
+                    <input type="password" ng-model="signup.password" required>
                 </label>
-                <label>
-      						<ion-checkbox ng-model="isChecked">Terms and Conditions</ion-checkbox>
-      					</label>
+
             </ion-list>
-            <button class="button button-positive button-block " ng-click="signupEmail()">Sign Up</button>
-            <button class="button button-positive button-block " ng-click="enterData()">Enter Data</button>
-            <div ng-show="myvalue" style="text-align:center;">Signup Successful</div>
+            <button class="button button-positive button-block " ng-click="signupEmail()"  ng-disabled="signup.$invalid" >Sign Up</button>
+            <div class="form-errors" ng-if="signup.email != signup.email2">
+            <span>Not Matching</span>
+<!--          <div class="form-error" ng-message="required">Please enter your Health Insurance Number</div>-->
+        </div>
         </form>
     </ion-content>
 </ion-view>

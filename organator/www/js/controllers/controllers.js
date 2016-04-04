@@ -79,7 +79,7 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
 
 
   var ref = new Firebase("https://organator.firebaseio.com");
-ref.onAuth(authDataCallback)
+ref.onAuth(authDataCallback);
          $scope.auth_true = function(){
  
   var ref = new Firebase("https://organator.firebaseio.com");
@@ -87,7 +87,7 @@ ref.onAuth(authDataCallback)
   ref.authWithPassword({
     email    : $scope.loginData.email,
     password : $scope.loginData.password,
-	rememberMe: true
+	rememberMe: false
   }, function(error, authData) {
     if (error) {
       console.log("Login Failed!", error);
@@ -139,10 +139,28 @@ ref.authWithOAuthPopup("facebook", function(error, authData) {
 .controller('hospitalHomeCtrl', function($scope, $cordovaSQLite, Users){
     $scope.init = function(){}
     $scope.listOfDonors = Users;
+	$scope.donorList = {};
+	
+	$scope.getDonors = function(){
+	var ref = new Firebase("https://organator.firebaseio.com/users/personalDetails");
+// Retrieve new posts as they are added to our database
+  $scope.donorList = [];
+  
+ref.orderByKey().once("value", function(snapshot) {
+  snapshot.forEach(function(childSnapshot) {
+  var data = childSnapshot.val();
+
+  $scope.donorList.push({name:data.firstName + " " + data.lastName, sex:data.sex, bloodGroup:data.bloodGroup});
+
+  
+  });
+});
+	}
 })
 .controller('donorsignupCtrl', function ($scope, $state, Users) {
     $scope.myvalue = false;
-        $scope.Model = {};
+        $scope.signup = {};
+		$scope.successful = false;
 		$scope.init = function () {}
      
         $scope.signupEmail = function(){  
@@ -150,16 +168,15 @@ ref.authWithOAuthPopup("facebook", function(error, authData) {
   var ref = new Firebase("https://organator.firebaseio.com");
  
   ref.createUser({
-    email    : $scope.Model.email,
-    password : $scope.Model.password
+    email    : $scope.signup.email,
+    password : $scope.signup.password
   }, function(error, userData) {
     if (error) {
       console.log("Error creating user:", error);
       
     } else {
       console.log("Successfully created user account with uid:", userData.uid);
-      $scope.myvalue = true;
-	  
+	  $scope.successful = true;
 	  $state.go('personalDetails');
     }
   });

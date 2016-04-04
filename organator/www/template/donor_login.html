@@ -26,7 +26,6 @@
             <div ng-messages-include="template/error-messages.html"></div>
 <!--          <div class="form-error" ng-message="required">Please enter your Password (At least 5 characters)</div>-->
         </div>
-		<ion-checkbox ng-model="filter.blue">Remember Me</ion-checkbox>
         <label class="item">
           <button class="button button-block button-positive" name="submit" type="submit" ng-disabled="loginForm.$invalid" ng-click="auth_true()">Sign In</button>
         </lqabel>
@@ -34,27 +33,18 @@
           <div ng-show="myvalue" style="text-align:center;">Email or Password is wrong</div>
         
       </div>
-       <div style="text-align:center;">
-      <label class="item">
-        
-          <button class="button red" style="text-align:center;" align="center" ng-click="auth_true_Gmail()">Sign In with Google</button>
-        </label>
-		 <label class="item">
-          <button class="button blue" style="text-align:center;" align="center" ng-click="auth_true_Facebook()">Sign In with Facebook</button>
-        </label>
-	  </div>
+		
+		<div class="row  padding removePM">
+	  <div class="col"> <a class="button-red button button-block" ng-click="auth_true_Gmail()"><i class="icon ion-social-google"></i></a> </div>
+	  <div class="col"> <a class="button-positive button button-block" ng-click="auth_true_Facebook()"><i class="icon ion-social-facebook"></i></a> </div>
+	</div>
+	   
 	   <div class="row">
             <button class="button button-full button-clear button-positive title" ng-click="forgot_password()">
 				Forget Password?
 			</button>
-        </div>
+        </div>  
 
-		<h3 style="text-align:center;">OR</h3>
-		<div class="row">
-            <button class="button button-block button-balanced" ng-click="auth_true()">
-              Sign In With Medical Id
-            </button>
-		</div>
     </form>
   </ion-content>
   <ion-footer-bar class="bar-stable center">

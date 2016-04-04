@@ -11,23 +11,21 @@
             </label>        
             <div ng-messages="loginForm.email.$error"  
             class="form-errors" ng-if="loginForm.email.$touched">
-                <div ng-messages-include="templates/error-messages.html"></div>
-              <div class="form-error" ng-message="required">Please enter your Email</div>
+                <div ng-messages-include="template/error-messages.html" ></div>
+           <!--   <div class="form-error" ng-message="required">Please enter your Email</div> -->
             </div>
             <label class="item item-input">
               <span class="input-label">Password</span>
               <input type="password" name="password" ng-model="loginData.password" ng-minlength="5" ng-maxlength="30" required>
             </label>
             <div ng-messages="loginForm.password.$error" class="form-errors" ng-if="loginForm.email.$touched">
-                <div ng-messages-include="templates/error-messages.html"></div>
-              <div class="form-error" ng-message="required">Please enter your Password</div>
+                <div ng-messages-include="template/error-messages.html" ></div>
+           <!--   <div class="form-error" ng-message="required">Please enter your Password</div> -->
             </div>
             </form>
 
               </label>
-                        <label>
-                            <ion-checkbox ng-model="isChecked">Terms and Conditions</ion-checkbox>
-                        </label>
+                       
                             <button class="button button-positive button-full" ng-disabled="loginForm.$invalid" ng-click="hospital_login_clicked()">
                   Sign In
                 </button>

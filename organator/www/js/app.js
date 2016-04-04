@@ -18,10 +18,10 @@ angular.module('starter', ['ionic','ui.router','starter.controllers', 'ngCordova
 })
 .config(function ($stateProvider, $urlRouterProvider) {
     
-	$stateProvider
+	$stateProvider 
     .state('home', {
         url: '/home',
-        templateUrl: 'template/home.html',
+        templateUrl: 'template/home.html', 
         controller: 'AppCntrl'
     })
 	.state('hospital', {
@@ -33,12 +33,7 @@ angular.module('starter', ['ionic','ui.router','starter.controllers', 'ngCordova
 	.state('donor', {
 			url: '/donor',
 			cache: false,
-			templateUrl: function(){
-                if(ionic.Platform.isAndroid()){
-                    return 'template/droid_donor_login.html';
-                }
-                return 'template/donor_login.html';
-            },
+			templateUrl:'template/donor_login.html',
 			controller: 'donorCtrl'
 		})
 		// Each tab has its own nav history stack:

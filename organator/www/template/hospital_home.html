@@ -11,15 +11,16 @@
             </div>
         </div>
 -->
-        <div class="list">
-            <a class="item item-avatar" href="#" ng-repeat="donor in listOfDonors | filter: filterCriteria">
+        <div class="list" data-ng-init="getDonors()">
+            <a class="item item-avatar" href="#" ng-repeat="donor in donorList">
               <img src="../img/logo.jpg">
               <h2>{{ donor.name }}</h2>
-              <p>Country: {{ donor.country }}<br>
-                 Province: {{ donor.province }}<br>
-                 Blood Type: {{donor.bloodType}}<br>
-                 Age: {{donor.age}}<br>
-                 Organs: <span ng-repeat="(key, val) in donor.organs"> {{ val }} </span>
+              <p>Sex: {{ donor.sex }}<br>
+                 Blood Group: {{ donor.bloodGroup }}<br>
+				 
+                <!-- Blood Type: {{donorList.bloodType}}<br>
+                 Age: {{donorList.age}}<br>
+                 Organs: <span ng-repeat="(key, val) in donor.organs"> {{ val }} </span> -->
               </p>
                 
             </a>

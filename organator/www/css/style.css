@@ -37,6 +37,11 @@
 	text-align: center;
 	align-content: center;
 }
+
+.background{
+ 	background: url(../img/background.png);
+ 
+}
 h3{
 	text-align: center;
 }
@@ -133,4 +138,5 @@ label.item.valid-lr {
 	-moz-box-shadow: 0 1px 1px rgba(0,0,0,.1);
 	box-shadow: 0 1px 1px rgba(0,0,0,.1);
 }
+
 
