@@ -9,17 +9,17 @@
           <span class="input-label">Username</span>
           <input type="text" name="username" ng-model="loginData.username" ng-minlength="5" ng-maxlength="30" required>
         </label>        
-        <div ng-messages="loginForm.username.$error" ng-messages-include="templates/error-messages.html" 
+        <div ng-messages="loginForm.username.$error"
         class="form-errors" ng-if="loginForm.username.$touched">
-          <div class="form-error" ng-message="required">Please enter your Username</div>
+          <div ng-messages-include="template/error-messages.html" ></div>
         </div>
         <label class="item item-input">
           <span class="input-label">Password</span>
           <input type="password" name="password" ng-model="loginData.password" ng-minlength="5" ng-maxlength="30" required>
         </label>
-        <div ng-messages="loginForm.password.$error" ng-messages-include="templates/error-messages.html" 
+        <div ng-messages="loginForm.password.$error"
         class="form-errors" ng-if="loginForm.username.$touched">
-          <div class="form-error" ng-message="required">Please enter your Password</div>
+            <div ng-messages-include="template/error-messages.html" ></div>
         </div>
 		</form>
 		
