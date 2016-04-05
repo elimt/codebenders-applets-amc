@@ -60,7 +60,9 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
         $scope.loginData = {};
 		$scope.init = function () {}
 		$scope.authen = false;
-        $scope.new_user_clicked = function(){
+		$scope.uid = '';
+        $scope.new_user_clicked = function()
+		{
             $state.go('donor_signup');
             
         }
@@ -69,7 +71,7 @@ angular.module('starter.controllers', ['ionic','ui.router', 'ngCordova', 'fireba
   if (authData) {
 	  $state.go('personalDetails');
     console.log("User " + authData.uid + " is logged in with " + authData.provider);
-	
+	$scope.uid = authData.uid;
   } else {
     console.log("User is logged out");
 
@@ -143,19 +145,41 @@ ref.authWithOAuthPopup("facebook", function(error, authData) {
 	
 	$scope.getDonors = function(){
 	var ref = new Firebase("https://organator.firebaseio.com/users/personalDetails");
+	var ref2 = new Firebase("https://organator.firebaseio.com/users/organDetails");
 // Retrieve new posts as they are added to our database
   $scope.donorList = [];
-  
+  var id_counter = 0;
+  var id_counter_organ = 0;
 ref.orderByKey().once("value", function(snapshot) {
   snapshot.forEach(function(childSnapshot) {
   var data = childSnapshot.val();
-
-  $scope.donorList.push({name:data.firstName + " " + data.lastName, sex:data.sex, bloodGroup:data.bloodGroup});
-
-  
+  var data = childSnapshot.val();
+  id_counter += 1
+  $scope.donorList.push({sort_id:id_counter, name:data.firstName + " " + data.lastName, sex:data.sex, bloodGroup:data.bloodGroup});
   });
 });
+
+
+/*ref2.orderByKey().once("value", function(snapshot) {
+  snapshot.forEach(function(childSnapshot) {
+  var data = childSnapshot.val();
+  id_counter_organ += 1;
+  
+  $scope.donorList.push({eyes:data.eyes});
+  });
+}); */
 	}
+	
+	$scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
 })
 .controller('donorsignupCtrl', function ($scope, $state, Users) {
     $scope.myvalue = false;

@@ -11,8 +11,14 @@
             </div>
         </div>
 -->
-        <div class="list" data-ng-init="getDonors()">
-            <a class="item item-avatar" href="#" ng-repeat="donor in donorList">
+        <div class="list" data-ng-init="getDonors(); ">
+           <!-- <a class="item item-avatar" href="#" ng-repeat="donor in donorList"> -->
+			<ion-list>
+			<div ng-repeat="donor in donorList">
+			
+          <ion-item class="item item-avatar"
+                    ng-click="toggleGroup(donor)"
+                    ng-class="{active: isGroupShown(donor)}">
               <img src="../img/logo.jpg">
               <h2>{{ donor.name }}</h2>
               <p>Sex: {{ donor.sex }}<br>
@@ -22,8 +28,16 @@
                  Age: {{donorList.age}}<br>
                  Organs: <span ng-repeat="(key, val) in donor.organs"> {{ val }} </span> -->
               </p>
-                
-            </a>
+			  </ion-item>
+			  
+			<!--  <ion-item class="item-accordion"
+                    ng-show="isGroupShown(donor)">
+            Organs: {{donor.eyes}}
+          </ion-item> -->
+			  
+              </div> 
+			  </ion-list>
+           <!-- </a> -->
         </div>
 	</ion-content>
 </ion-view>
