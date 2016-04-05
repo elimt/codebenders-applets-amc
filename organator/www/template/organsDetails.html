@@ -1,8 +1,8 @@
 <ion-view title="Organs Details">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <h3>Which organs would like to donate?</h3>
+        <h3>What would you like to donate?</h3>
         <div>
-            <p>Select one or more than one organs.</p>
+            <p>Select one or more organs.</p>
         </div>
         <ion-list>
             <ion-checkbox name="Kidneys">Kidneys</ion-checkbox>
@@ -14,6 +14,18 @@
             <ion-checkbox name="Skin">Skin</ion-checkbox>
             <ion-checkbox name="Pancreas">Pancreas</ion-checkbox>
         </ion-list>
+
+        <li class="item item-toggle">
+        Do you wish to donate blood?
+            <label class="toggle toggle-positive">
+                <input type="checkbox"> 
+                <!--track class will add background styling to the checkbox and color animation when toggle is tapped. handle class is used to add circle button to it.-->
+                <div class="track">
+                        <div class="handle"></div>
+                </div>
+            </label>
+        </li>
+       
         <a ui-sref="confirmPage" class="button button-stable button-block  icon-right ion-android-arrow-forward" ng-click="valid_organsDetails()">Next: Confirm Page</a>
         <a ui-sref="addressDetails" class="button button-stable button-block  icon-left ion-android-arrow-back">Back : Address Details</a>
     </ion-content>
